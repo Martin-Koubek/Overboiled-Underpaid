@@ -48,11 +48,11 @@ public class movement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        //jump
+        /*//jump
         if(Input.GetButtonDown("Jump")&& grounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
+        }*/
 
         //sprint
         if (Input.GetButton("Sprint"))
