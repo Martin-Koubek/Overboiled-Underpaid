@@ -11,6 +11,11 @@ public class OptionsScript : MonoBehaviour
 
     //reference na dropdown
     public Dropdown resolutionDropdown;
+    public Dropdown qualityDropdown;
+
+    public int setQualit;
+    public int setResH;
+    public int setResV;
 
     //nastavování audia
     public void SetVolume (float volume)
@@ -43,16 +48,24 @@ public class OptionsScript : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
+   /* private void Update () 
+    {
+        
+    }*/
+
     public void SetRes(int ResIndex)
     {
         Resolution resolution = res[ResIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        //setResH = resolution.height;
+        //setResV = resolution.width;
     }
 
     //nastavení kvality
     public void Quality (int qualitIndex)
     {
         QualitySettings.SetQualityLevel(qualitIndex);
+        //setQualit = qualitIndex;
     }
     
     //nastavení fullscreenu

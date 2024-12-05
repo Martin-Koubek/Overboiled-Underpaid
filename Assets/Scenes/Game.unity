@@ -8393,6 +8393,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 24100000, guid: b218fbf8362d52642b52335e49c0ec5d, type: 2}
   resolutionDropdown: {fileID: 633755470}
+  qualityDropdown: {fileID: 670984329}
+  setQualit: 0
+  setResH: 0
+  setResV: 0
 --- !u!1 &584421318
 GameObject:
   m_ObjectHideFlags: 0
@@ -19389,7 +19393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit Game
+  m_text: Return to menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19416,8 +19420,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 19
+  m_fontSizeBase: 19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
