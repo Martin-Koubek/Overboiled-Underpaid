@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 71fad53b06f6f944e9a28078fac67148, type: 3}
       propertyPath: m_Name
-      value: food_ingredient_cheese_slice
+      value: cutCheese
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 71fad53b06f6f944e9a28078fac67148, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4270870219700510130}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 71fad53b06f6f944e9a28078fac67148, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2935321113982780087}
   m_SourcePrefab: {fileID: 100100000, guid: 71fad53b06f6f944e9a28078fac67148, type: 3}
 --- !u!1 &2886572153805394437 stripped
 GameObject:
@@ -87,8 +90,29 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-2935321113982780087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886572153805394437}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8243364, y: 0.10549346, z: 0.8243367}
+  m_Center: {x: 0.0000010430813, y: -0.034673158, z: 0}

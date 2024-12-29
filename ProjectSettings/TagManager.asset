@@ -15,7 +15,6 @@ TagManager:
   - burned
   - ham storage
   - tomato storage
-  - letus storage
   - carot storage
   - bun storage
   - fridge door
@@ -25,6 +24,7 @@ TagManager:
   - steak storage
   - plate
   - bowl
+  - lettuce storage
   layers:
   - Default
   - TransparentFX

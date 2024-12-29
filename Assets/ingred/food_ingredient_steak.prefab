@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6664771354609153529
+--- !u!1001 &8070430410606500373
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,73 +8,73 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.768143
+      value: -20.078953
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.50000024
+      value: 0.537221
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.263047
+      value: 0.25
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.000000021855694
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - target: {fileID: 919132149155446097, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_Name
-      value: Bmeat
+      value: food_ingredient_steak
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 59a3c069759508440825b3257f7de650, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3443286241743669502}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 59a3c069759508440825b3257f7de650, type: 3}
+      addedObject: {fileID: 7552348986544992198}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8822286176211496126}
-  m_SourcePrefab: {fileID: 100100000, guid: 59a3c069759508440825b3257f7de650, type: 3}
---- !u!1 &5818492310112979112 stripped
+      addedObject: {fileID: 1515716350520707900}
+  m_SourcePrefab: {fileID: 100100000, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
+--- !u!1 &7151298818858346308 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 59a3c069759508440825b3257f7de650, type: 3}
-  m_PrefabInstance: {fileID: 6664771354609153529}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
+  m_PrefabInstance: {fileID: 8070430410606500373}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &3443286241743669502
+--- !u!54 &7552348986544992198
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5818492310112979112}
+  m_GameObject: {fileID: 7151298818858346308}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -94,14 +94,14 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &-8822286176211496126
+  m_CollisionDetection: 1
+--- !u!65 &1515716350520707900
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5818492310112979112}
+  m_GameObject: {fileID: 7151298818858346308}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -114,5 +114,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7, y: 0.20000002, z: 0.7}
-  m_Center: {x: 0, y: 0.099999994, z: 0}
+  m_Size: {x: 1.0520768, y: 0.2832456, z: 0.9025269}
+  m_Center: {x: -0.00251019, y: 0.104402035, z: 0.00074723363}
