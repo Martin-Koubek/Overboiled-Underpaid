@@ -25,6 +25,7 @@ TagManager:
   - plate
   - bowl
   - lettuce storage
+  - ingred
   layers:
   - Default
   - TransparentFX
