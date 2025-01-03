@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: lettuce
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 634a9c1d62e8955408da8552a23a7663, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 634a9c1d62e8955408da8552a23a7663, type: 3}
+      propertyPath: m_TagString
+      value: ingred
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

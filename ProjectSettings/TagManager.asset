@@ -20,12 +20,16 @@ TagManager:
   - fridge door
   - cheese storage
   - burger meat storage
-  - Vegan Burger storage
   - steak storage
   - plate
   - bowl
   - lettuce storage
   - ingred
+  - pan
+  - table
+  - plates
+  - bowls
+  - Burger
   layers:
   - Default
   - TransparentFX
@@ -34,7 +38,7 @@ TagManager:
   - Water
   - UI
   - test
-  - 
+  - ingred
   - 
   - 
   - 

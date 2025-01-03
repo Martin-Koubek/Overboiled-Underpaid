@@ -2,12 +2,14 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.UI;
 
 public class taking : MonoBehaviour
 {
     //reference na prefab ingrediencí
-    public GameObject buns, lettuce, burgerMeat, cheese, steak, carot, tomato, ham;
+    public GameObject buns, lettuce, burgerMeat, cheese, steak, carot, tomato, ham, plate, bowl;
+    public LayerMask maskIngred;
     
     //reference na držený pøedmìt, mýsto držení, bod poèátku raycastu 
     public GameObject heldItem;
@@ -36,7 +38,7 @@ public class taking : MonoBehaviour
             if (!holding && Physics.Raycast(ray, out hit, IntRange))
             {
                 Debug.DrawRay(RayCastPoint.position, RayCastPoint.forward * IntRange, Color.red);
-                Rigidbody rb;
+                //Rigidbody rb;
                 if (hit.collider.gameObject.CompareTag("bun storage"))
                 {
                     //hand.SetActive(true);
@@ -79,22 +81,49 @@ public class taking : MonoBehaviour
                     //hand.SetActive(true);
                     heldItem = Instantiate(carot, spot.transform.position, Quaternion.identity);
                     take();
-                    
+
                 }
                 else if (hit.collider.gameObject.CompareTag("steak storage"))
                 {
                     //hand.SetActive(true);
                     heldItem = Instantiate(steak, spot.transform.position, Quaternion.identity);
-                    take();  
+                    take();
                 }
-                else if(hit.collider.gameObject.CompareTag("ingred"))
+                else if (hit.collider.gameObject.layer == maskIngred)
                 {
                     heldItem = hit.collider.gameObject;
                     take();
                 }
+                else if (hit.collider.gameObject.CompareTag("pan"))
+                {
+                    heldItem = hit.collider.gameObject;
+                    take();
+                }
+                else if (hit.collider.gameObject.CompareTag("plates"))
+                {
+                    heldItem = Instantiate(plate, spot.transform.position, Quaternion.identity);
+                    take();
+                }
+                else if (hit.collider.gameObject.CompareTag("bowls"))
+                {
+                    heldItem = Instantiate(bowl, spot.transform.position, Quaternion.identity);
+                    take();
+                }
+
+            }
+            else if (holding && Physics.Raycast(ray, out hit, IntRange))
+            {
+                if (hit.collider.gameObject.CompareTag("pan"))
+                {
+                    //heldItem.transform.position = hit.collider.transform.position;
+                    heldItem.transform.SetParent(null);
+                    heldItem.transform.SetParent(hit.collider.transform, true);
+                    heldItem.transform.position = hit.collider.transform.position;
+                    place();
+                }
             }
         }
-        else if (holding && Input.GetKey(KeyCode.Q))
+        else if (holding && Input.GetKeyDown(KeyCode.Q))
         {
             drop();
         }
@@ -115,5 +144,11 @@ public class taking : MonoBehaviour
         heldItem.transform.rotation = Quaternion.identity;
         heldItem.transform.SetParent(spot.transform, false); 
         heldItem.GetComponent<Rigidbody>().isKinematic = true;
+    }
+    public void place()
+    {
+        
+        holding = false;
+        
     }
 }
