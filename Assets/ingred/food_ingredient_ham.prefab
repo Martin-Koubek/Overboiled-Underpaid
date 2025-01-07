@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eb45412dbd16f3c41ba7c051573fb7c3, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eb45412dbd16f3c41ba7c051573fb7c3, type: 3}
       propertyPath: m_TagString
@@ -69,10 +69,10 @@ PrefabInstance:
       addedObject: {fileID: 6698605244751257376}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb45412dbd16f3c41ba7c051573fb7c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3422926874669989844}
+      addedObject: {fileID: -3411593496040835162}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb45412dbd16f3c41ba7c051573fb7c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3411593496040835162}
+      addedObject: {fileID: 2535828426722235581}
   m_SourcePrefab: {fileID: 100100000, guid: eb45412dbd16f3c41ba7c051573fb7c3, type: 3}
 --- !u!1 &703136639769894547 stripped
 GameObject:
@@ -106,8 +106,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &3422926874669989844
-BoxCollider:
+--- !u!114 &-3411593496040835162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703136639769894547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ab1c5cc5bfbd64588c20a8244c8470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &2535828426722235581
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,18 +136,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.3911011, y: 0.83, z: 0.83000004}
-  m_Center: {x: -0.19979689, y: 0.00036850572, z: 0.0003438145}
---- !u!114 &-3411593496040835162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703136639769894547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ab1c5cc5bfbd64588c20a8244c8470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 344612998648604517, guid: eb45412dbd16f3c41ba7c051573fb7c3, type: 3}

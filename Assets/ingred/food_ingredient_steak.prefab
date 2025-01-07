@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       propertyPath: m_TagString
@@ -69,10 +69,10 @@ PrefabInstance:
       addedObject: {fileID: 7552348986544992198}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1515716350520707900}
+      addedObject: {fileID: 220555428812858142}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 220555428812858142}
+      addedObject: {fileID: 6103447128031474463}
   m_SourcePrefab: {fileID: 100100000, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}
 --- !u!1 &7151298818858346308 stripped
 GameObject:
@@ -106,8 +106,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &1515716350520707900
-BoxCollider:
+--- !u!114 &220555428812858142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151298818858346308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ab1c5cc5bfbd64588c20a8244c8470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &6103447128031474463
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,18 +136,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0520768, y: 0.2832456, z: 0.9025269}
-  m_Center: {x: -0.00251019, y: 0.104402035, z: 0.00074723363}
---- !u!114 &220555428812858142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7151298818858346308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ab1c5cc5bfbd64588c20a8244c8470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 188569108631043142, guid: 84b25f04159e0744da785a1cd9747bca, type: 3}

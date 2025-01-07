@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class pan : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject spot;
+    public GameObject PlacedItem;
+    public bool isPlaced;
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (isPlaced)
+        {
+            PlacedItem.transform.position = spot.transform.position;
+        }
     }
 }

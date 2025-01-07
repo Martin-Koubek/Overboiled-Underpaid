@@ -30,6 +30,7 @@ TagManager:
   - plates
   - bowls
   - Burger
+  - dish
   layers:
   - Default
   - TransparentFX
@@ -38,9 +39,9 @@ TagManager:
   - Water
   - UI
   - test
-  - ingred
-  - 
-  - 
+  - interact
+  - PickUp
+  - pan
   - 
   - 
   - 
