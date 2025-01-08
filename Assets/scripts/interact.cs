@@ -10,7 +10,7 @@ public class interact : MonoBehaviour
     //reference na držený pøedmìt, mýsto držení, bod poèátku raycastu 
     public GameObject heldItem;
     public Transform RayCastPoint;
-    public GameObject spot;
+    public GameObject holdSpot;
 
     public LayerMask PickUpMask;
     public LayerMask InteractMask;
@@ -34,7 +34,7 @@ public class interact : MonoBehaviour
                 //Rigidbody rb;
                 if (hit.collider.gameObject.TryGetComponent<storage>(out storage s))
                 {
-                    heldItem = Instantiate(s.FoodRef, spot.transform.position, Quaternion.identity);
+                    heldItem = Instantiate(s.FoodRef, holdSpot.transform.position, Quaternion.identity);
                     take();
                 }
                 else if (hit.collider.GetComponent<ingred>())
@@ -42,9 +42,9 @@ public class interact : MonoBehaviour
                     heldItem = hit.collider.gameObject;
                     take();
                 }
-                else if (hit.collider.gameObject.TryGetComponent(out dishes d))
+                else if (hit.collider.gameObject.TryGetComponent<dishes>(out dishes d))
                 {
-                    heldItem = Instantiate(d.dish, spot.transform.position, Quaternion.identity);
+                    heldItem = Instantiate(d.dish, holdSpot.transform.position, Quaternion.identity);
                     take();
                 }
                 else if (hit.collider.gameObject.TryGetComponent<pan>(out pan p))
@@ -53,21 +53,36 @@ public class interact : MonoBehaviour
                         heldItem = hit.collider.gameObject;
                         take();
                     }
-                    else
+                    else if (p.isPlaced)
                     {
                         heldItem = p.gameObject;
                         take();
                     }
                 }
-               
-
-
+                else if (hit.collider.gameObject.TryGetComponent<Table>(out Table table) && table.isPlaced)
+                {
+                    heldItem = table.placedItem;
+                    take();
+                    table.isPlaced = false;
+                }
             }
-
-
-
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
             {
+
+                if(hit.collider.gameObject.TryGetComponent<Table>(out Table table))
+                {
+                    if (!table.isPlaced)
+                    {
+                        heldItem.transform.SetParent(null);
+                        heldItem.transform.SetParent(table.placeSpot, true);
+                        table.placedItem = heldItem;
+                        heldItem.transform.position = table.placeSpot.position;
+                        heldItem.transform.rotation = Quaternion.identity;
+                        holding = false;
+                        table.isPlaced = true;
+                    }
+                    return;
+                }
 
                 if (heldItem.GetComponent<ingred>())
                 {
@@ -117,7 +132,7 @@ public class interact : MonoBehaviour
         holding = true;
         heldItem.transform.position = Vector3.zero;
         heldItem.transform.rotation = Quaternion.identity;
-        heldItem.transform.SetParent(spot.transform, false); 
+        heldItem.transform.SetParent(holdSpot.transform, false); 
         heldItem.GetComponent<Rigidbody>().isKinematic = true;
     }
 }

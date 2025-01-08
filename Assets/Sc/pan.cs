@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class pan : MonoBehaviour
 {
-    public GameObject spot;
+    public Transform spot;
     public GameObject PlacedItem;
     public bool isPlaced;
 
@@ -10,7 +10,7 @@ public class pan : MonoBehaviour
     {
         if (isPlaced)
         {
-            PlacedItem.TryGetComponent<Rigidbody>(out Rigidbody r);
+            
         }
     }
 }
