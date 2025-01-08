@@ -22,13 +22,13 @@ public class interact : MonoBehaviour
     public bool holding;
     //raycast info
     public RaycastHit hit;
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             Ray ray = new Ray(RayCastPoint.position, RayCastPoint.forward);
-            if (!holding && Physics.Raycast(ray, out hit, HitRange, PickUpMask))
+            if (!holding && Physics.Raycast(ray, out hit, HitRange))
             {
                 Debug.DrawRay(RayCastPoint.position, RayCastPoint.forward * HitRange, Color.red);
                 //Rigidbody rb;
@@ -47,35 +47,42 @@ public class interact : MonoBehaviour
                     heldItem = Instantiate(d.dish, spot.transform.position, Quaternion.identity);
                     take();
                 }
-                
+                else if (hit.collider.gameObject.TryGetComponent<pan>(out pan p))
+                {
+                    if (!p.isPlaced) {
+                        heldItem = hit.collider.gameObject;
+                        take();
+                    }
+                    else
+                    {
+                        heldItem = p.gameObject;
+                        take();
+                    }
+                }
+               
+
 
             }
-            else if (Physics.Raycast(ray, out hit, HitRange, pan))
-            {
-                if (holding && hit.collider.TryGetComponent(out pan p))
-                {
-                    //heldItem.transform.position = hit.collider.transform.position;
-                    heldItem.transform.SetParent(null);
-                    heldItem.transform.SetParent(hit.collider.transform, true);
-                    p.PlacedItem = heldItem;
-                    heldItem.GetComponent<Rigidbody>().isKinematic = false;
-                    p.isPlaced = true;
-                    holding = false;
-                    //place();
-                }
-                else if (!holding && hit.collider.gameObject.GetComponent<pan>())
-                {
-                    heldItem = hit.collider.gameObject;
-                    take();
-                }
-            }
+
+
 
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
             {
-                
+
                 if (heldItem.GetComponent<ingred>())
                 {
-                    if(hit.collider.TryGetComponent(out cuttingBoard c))
+                    if (hit.collider.TryGetComponent(out pan p))
+                    {
+
+                        heldItem.transform.SetParent(null);
+                        heldItem.transform.SetParent(hit.collider.transform, true);
+                        p.PlacedItem = heldItem;
+                        heldItem.GetComponent<Rigidbody>().isKinematic = false;
+                        p.isPlaced = true;
+                        holding = false;
+
+                    }
+                    if (hit.collider.TryGetComponent(out cuttingBoard c))
                     {
                         Transform t = c.PSpot;
                         heldItem.transform.SetParent(null);
@@ -83,7 +90,7 @@ public class interact : MonoBehaviour
                         heldItem.transform.position = t.position;
                         heldItem.GetComponent<Rigidbody>().isKinematic = false;
                         holding = false;
-                       
+
                     }
                 }
             }
@@ -92,20 +99,18 @@ public class interact : MonoBehaviour
         {
             drop();
         }
-        
-        
     }
+       
+        
     public void StorageTake(RaycastHit hit)
     {
         
     }
-
     public void drop()
     {
         heldItem.transform.SetParent(null);
         holding = false;
         heldItem.GetComponent<Rigidbody>().isKinematic = false;
-
     }
     public void take()
     {
@@ -115,10 +120,6 @@ public class interact : MonoBehaviour
         heldItem.transform.SetParent(spot.transform, false); 
         heldItem.GetComponent<Rigidbody>().isKinematic = true;
     }
-    //public void place()
-    //{
-        
-    //    holding = false;
-        
-    //}
 }
+
+

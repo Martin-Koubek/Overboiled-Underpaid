@@ -10,7 +10,7 @@ public class pan : MonoBehaviour
     {
         if (isPlaced)
         {
-            PlacedItem.transform.position = spot.transform.position;
+            PlacedItem.TryGetComponent<Rigidbody>(out Rigidbody r);
         }
     }
 }
