@@ -31,7 +31,6 @@ public class interact : MonoBehaviour
             if (!holding && Physics.Raycast(ray, out hit, HitRange))
             {
                 Debug.DrawRay(RayCastPoint.position, RayCastPoint.forward * HitRange, Color.red);
-                //Rigidbody rb;
                 if (hit.collider.gameObject.TryGetComponent<storage>(out storage s))
                 {
                     heldItem = Instantiate(s.FoodRef, holdSpot.transform.position, Quaternion.identity);
@@ -49,7 +48,8 @@ public class interact : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.TryGetComponent<pan>(out pan p))
                 {
-                    if (!p.isPlaced) {
+                    if (!p.isPlaced)
+                    {
                         heldItem = hit.collider.gameObject;
                         take();
                     }
@@ -62,6 +62,7 @@ public class interact : MonoBehaviour
                 else if (hit.collider.gameObject.TryGetComponent<Table>(out Table table) && table.isPlaced)
                 {
                     heldItem = table.placedItem;
+                    table.placedItem.transform.SetParent(null);
                     take();
                     table.isPlaced = false;
                 }
@@ -86,22 +87,21 @@ public class interact : MonoBehaviour
 
                 if (heldItem.GetComponent<ingred>())
                 {
-                    if (hit.collider.TryGetComponent(out pan p))
+                    if (hit.collider.TryGetComponent<stove>(out stove stove))
                     {
-
-                        heldItem.transform.SetParent(null);
-                        heldItem.transform.SetParent(hit.collider.transform, true);
-                        p.PlacedItem = heldItem;
-                        heldItem.GetComponent<Rigidbody>().isKinematic = false;
-                        p.isPlaced = true;
+                        stove.PlacedIngred = heldItem;
                         holding = false;
-
+                        heldItem.transform.SetParent(null);
+                        heldItem.transform.SetParent(stove.PlaceSpot, true);
+                        heldItem.transform.position = stove.PlaceSpot.position;
+                        heldItem.transform.rotation = Quaternion.identity;
                     }
-                    if (hit.collider.TryGetComponent(out cuttingBoard c))
+                    if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c))
                     {
                         Transform t = c.PSpot;
                         heldItem.transform.SetParent(null);
                         heldItem.transform.SetParent(hit.collider.transform, true);
+                        c.PlacedIngredience = heldItem;
                         heldItem.transform.position = t.position;
                         heldItem.GetComponent<Rigidbody>().isKinematic = false;
                         holding = false;
@@ -130,9 +130,9 @@ public class interact : MonoBehaviour
     public void take()
     {
         holding = true;
-        heldItem.transform.position = Vector3.zero;
+        heldItem.transform.SetParent(holdSpot.transform, false);
+        heldItem.transform.localPosition = Vector3.zero;
         heldItem.transform.rotation = Quaternion.identity;
-        heldItem.transform.SetParent(holdSpot.transform, false); 
         heldItem.GetComponent<Rigidbody>().isKinematic = true;
     }
 }
