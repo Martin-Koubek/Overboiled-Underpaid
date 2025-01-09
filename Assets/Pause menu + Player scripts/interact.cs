@@ -46,25 +46,17 @@ public class interact : MonoBehaviour
                     heldItem = Instantiate(d.dish, holdSpot.transform.position, Quaternion.identity);
                     take();
                 }
-                else if (hit.collider.gameObject.TryGetComponent<pan>(out pan p))
-                {
-                    if (!p.isPlaced)
-                    {
-                        heldItem = hit.collider.gameObject;
-                        take();
-                    }
-                    else if (p.isPlaced)
-                    {
-                        heldItem = p.gameObject;
-                        take();
-                    }
-                }
                 else if (hit.collider.gameObject.TryGetComponent<Table>(out Table table) && table.isPlaced)
                 {
                     heldItem = table.placedItem;
                     table.placedItem.transform.SetParent(null);
                     take();
                     table.isPlaced = false;
+                }
+                else if (hit.collider.gameObject.TryGetComponent<cuttingBoard>(out cuttingBoard c))
+                {
+                    heldItem = c.PlacedIngredience;
+                    take();
                 }
             }
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
@@ -74,13 +66,9 @@ public class interact : MonoBehaviour
                 {
                     if (!table.isPlaced)
                     {
-                        heldItem.transform.SetParent(null);
-                        heldItem.transform.SetParent(table.placeSpot, true);
                         table.placedItem = heldItem;
-                        heldItem.transform.position = table.placeSpot.position;
-                        heldItem.transform.rotation = Quaternion.identity;
-                        holding = false;
                         table.isPlaced = true;
+                        Place();
                     }
                     return;
                 }
@@ -90,22 +78,12 @@ public class interact : MonoBehaviour
                     if (hit.collider.TryGetComponent<stove>(out stove stove))
                     {
                         stove.PlacedIngred = heldItem;
-                        holding = false;
-                        heldItem.transform.SetParent(null);
-                        heldItem.transform.SetParent(stove.PlaceSpot, true);
-                        heldItem.transform.position = stove.PlaceSpot.position;
-                        heldItem.transform.rotation = Quaternion.identity;
+                        Place();
                     }
                     if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c))
                     {
-                        Transform t = c.PSpot;
-                        heldItem.transform.SetParent(null);
-                        heldItem.transform.SetParent(hit.collider.transform, true);
                         c.PlacedIngredience = heldItem;
-                        heldItem.transform.position = t.position;
-                        heldItem.GetComponent<Rigidbody>().isKinematic = false;
-                        holding = false;
-
+                        Place();
                     }
                 }
             }
@@ -116,11 +94,6 @@ public class interact : MonoBehaviour
         }
     }
        
-        
-    public void StorageTake(RaycastHit hit)
-    {
-        
-    }
     public void drop()
     {
         heldItem.transform.SetParent(null);
@@ -134,6 +107,14 @@ public class interact : MonoBehaviour
         heldItem.transform.localPosition = Vector3.zero;
         heldItem.transform.rotation = Quaternion.identity;
         heldItem.GetComponent<Rigidbody>().isKinematic = true;
+    }
+    public void Place()
+    {
+        heldItem.transform.SetParent(null);
+        heldItem.transform.SetParent(hit.collider.transform, true);
+        heldItem.transform.localPosition = Vector3.zero;
+        heldItem.GetComponent<Rigidbody>().isKinematic = true;
+        holding = false;
     }
 }
 

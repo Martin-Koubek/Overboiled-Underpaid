@@ -13851,6 +13851,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 28260336}
     - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
+      propertyPath: cuttingTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
       propertyPath: cuttableIngredience.Array.size
       value: 3
       objectReference: {fileID: 0}
