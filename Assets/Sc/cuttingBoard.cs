@@ -1,29 +1,36 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class cuttingBoard : MonoBehaviour
 {
     public float cuttingTime;
-    public List<GameObject> cuttableIngredience;
+
+    //reference na objeky
     public GameObject PlacedIngredience;
-    public bool isPlaced;
+    private GameObject ItemToDestroy;
     public Transform PSpot;
-    private GameObject CVersion;
+
+    public bool isPlaced;
+    
 
     private void Update()
     {
         
-        if (isPlaced && cuttableIngredience.Contains(PlacedIngredience)) {
-            if (PlacedIngredience.TryGetComponent<ingred>(out ingred Ingred))
+        if (isPlaced) 
+        {
+            if(PlacedIngredience.TryGetComponent<ingred>(out ingred Ingred) && Ingred.isCuttable)
             {
-                    CVersion = Ingred.CuttVersion;
-                    PlacedIngredience.transform.SetParent(null);
-                    Destroy(PlacedIngredience);
-                    PlacedIngredience = CVersion;
-                    PlacedIngredience.transform.SetParent(PSpot, true);
-                    PlacedIngredience.transform.localPosition = Vector3.zero;
+                cutting(Ingred);
             }
         }
+    }
+
+
+    private void cutting(ingred I)
+    {
+        ItemToDestroy = PlacedIngredience;
+        PlacedIngredience = Instantiate(I.CuttVersion, PSpot);
+        Destroy(ItemToDestroy);
+        PlacedIngredience.transform.localPosition = Vector3.zero;
     }
 }

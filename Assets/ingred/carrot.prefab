@@ -96,8 +96,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3463207539759561824}
   - component: {fileID: 2527518839039774107}
-  - component: {fileID: 7643744884614400487}
   - component: {fileID: 6227788074359844098}
+  - component: {fileID: 6591187673674724234}
   m_Layer: 0
   m_Name: carrot
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 4017288461636105172}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.838141, y: 0.5, z: 0.3346256}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -148,8 +148,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &7643744884614400487
-MeshCollider:
+--- !u!114 &6227788074359844098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017288461636105172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ab1c5cc5bfbd64588c20a8244c8470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CuttVersion: {fileID: 5554303058568472779, guid: f00f7ab4e68f39d4eaee21f6a263bad3, type: 3}
+  isCuttable: 1
+--- !u!65 &6591187673674724234
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -166,19 +180,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1589047631748620231, guid: 5907ef1c51d7a49449306b9d01dfd74b, type: 3}
---- !u!114 &6227788074359844098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017288461636105172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ab1c5cc5bfbd64588c20a8244c8470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.24, z: 0}

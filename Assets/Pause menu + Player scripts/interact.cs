@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
+using UnityEngineInternal;
 
 public class interact : MonoBehaviour
 {    
@@ -36,11 +37,11 @@ public class interact : MonoBehaviour
                     heldItem = Instantiate(s.FoodRef, holdSpot.transform.position, Quaternion.identity);
                     take();
                 }
-                else if (hit.collider.GetComponent<ingred>())
-                {
-                    heldItem = hit.collider.gameObject;
-                    take();
-                }
+                //else if (hit.collider.GetComponent<ingred>())
+                //{
+                //    heldItem = hit.collider.gameObject;
+                //    take();
+                //}
                 else if (hit.collider.gameObject.TryGetComponent<dishes>(out dishes d))
                 {
                     heldItem = Instantiate(d.dish, holdSpot.transform.position, Quaternion.identity);
@@ -56,6 +57,13 @@ public class interact : MonoBehaviour
                 else if (hit.collider.gameObject.TryGetComponent<cuttingBoard>(out cuttingBoard c))
                 {
                     heldItem = c.PlacedIngredience;
+                    c.isPlaced = false;
+                    take();
+                }
+                else if (hit.collider.TryGetComponent<stove>(out stove Stove))
+                {
+                    heldItem = Stove.PlacedIngredience;
+                    Stove.isPlaced = false;
                     take();
                 }
             }
@@ -68,38 +76,46 @@ public class interact : MonoBehaviour
                     {
                         table.placedItem = heldItem;
                         table.isPlaced = true;
-                        Place();
+                        Place(table.placeSpot);
                     }
                     return;
                 }
 
                 if (heldItem.GetComponent<ingred>())
                 {
-                    if (hit.collider.TryGetComponent<stove>(out stove stove))
+                    if (hit.collider.TryGetComponent<stove>(out stove Stove))
                     {
-                        stove.PlacedIngred = heldItem;
-                        Place();
+                        Stove.PlacedIngredience = heldItem;
+                        Stove.isPlaced = true;
+                        Place(Stove.PlaceSpot);
                     }
                     if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c))
                     {
                         c.PlacedIngredience = heldItem;
-                        Place();
+                        c.isPlaced = true;
+                        Place(c.PSpot);
+                    }
+                    if (hit.collider.TryGetComponent<trash>(out trash Trash))
+                    {
+                        Trash.failedItem = heldItem.gameObject;
+                        holding = false;
+                        Trash.used = true;
                     }
                 }
             }
         }
-        else if (holding && Input.GetKeyDown(KeyCode.Q))
-        {
-            drop();
-        }
+        //else if (holding && Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    drop();
+        //}
     }
        
-    public void drop()
-    {
-        heldItem.transform.SetParent(null);
-        holding = false;
-        heldItem.GetComponent<Rigidbody>().isKinematic = false;
-    }
+    //public void drop()
+    //{
+    //    heldItem.transform.SetParent(null);
+    //    holding = false;
+    //    heldItem.GetComponent<Rigidbody>().isKinematic = false;
+    //}
     public void take()
     {
         holding = true;
@@ -108,12 +124,11 @@ public class interact : MonoBehaviour
         heldItem.transform.rotation = Quaternion.identity;
         heldItem.GetComponent<Rigidbody>().isKinematic = true;
     }
-    public void Place()
+    public void Place(Transform transform)
     {
-        heldItem.transform.SetParent(null);
-        heldItem.transform.SetParent(hit.collider.transform, true);
+        heldItem.transform.SetParent(transform, true);
         heldItem.transform.localPosition = Vector3.zero;
-        heldItem.GetComponent<Rigidbody>().isKinematic = true;
+        heldItem.GetComponent<Rigidbody>().isKinematic = false;
         holding = false;
     }
 }

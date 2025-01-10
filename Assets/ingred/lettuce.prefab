@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CuttVersion: {fileID: 8027918983066339765, guid: 87c3b3d37a3f244408e755803cb65b6c, type: 3}
+  isCuttable: 1
 --- !u!64 &-5892694213617018919
 MeshCollider:
   m_ObjectHideFlags: 0
