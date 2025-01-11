@@ -60,12 +60,6 @@ public class interact : MonoBehaviour
                     c.isPlaced = false;
                     take();
                 }
-                else if (hit.collider.TryGetComponent<stove>(out stove Stove))
-                {
-                    heldItem = Stove.PlacedIngredience;
-                    Stove.isPlaced = false;
-                    take();
-                }
             }
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
             {
@@ -83,12 +77,6 @@ public class interact : MonoBehaviour
 
                 if (heldItem.GetComponent<ingred>())
                 {
-                    if (hit.collider.TryGetComponent<stove>(out stove Stove))
-                    {
-                        Stove.PlacedIngredience = heldItem;
-                        Stove.isPlaced = true;
-                        Place(Stove.PlaceSpot);
-                    }
                     if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c))
                     {
                         c.PlacedIngredience = heldItem;
