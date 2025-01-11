@@ -12,6 +12,8 @@ public class cuttingBoard : MonoBehaviour
     public Transform PSpot;
 
     public bool isPlaced;
+    public bool isStove;
+    public bool isCuttingBoard;
     
 
     private void Update()
@@ -20,13 +22,18 @@ public class cuttingBoard : MonoBehaviour
         {
             cuttingTime -= Time.deltaTime;
             burnTime -= Time.deltaTime;
-            if(PlacedIngredience.TryGetComponent<ingred>(out ingred Ingred) && Ingred.isCuttable)
+            if (isCuttingBoard)
             {
-                cutting(Ingred);
+                if (PlacedIngredience.TryGetComponent<ingred>(out ingred Ingred) && Ingred.isCuttable)
+                {
+                    cutting(Ingred);
+                }
             }
-            else if (PlacedIngredience.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable)
-            {
-                cook(Ingredience);
+            else if (isStove) {
+                if (PlacedIngredience.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable)
+                {
+                    cook(Ingredience);
+                }
             }
         }
     }

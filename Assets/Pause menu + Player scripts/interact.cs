@@ -86,6 +86,7 @@ public class interact : MonoBehaviour
                     if (hit.collider.TryGetComponent<trash>(out trash Trash))
                     {
                         Trash.failedItem = heldItem.gameObject;
+                        heldItem.transform.SetParent(Trash.transform);
                         holding = false;
                         Trash.used = true;
                     }

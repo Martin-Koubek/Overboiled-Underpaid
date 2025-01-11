@@ -1130,26 +1130,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: PSpot
-      value: 
-      objectReference: {fileID: 97855030}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: cuttableIngredience.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[0]'
-      value: 
-      objectReference: {fileID: 6671679406258060098, guid: 194ba6e26cc5fee4597cacb688ace853, type: 3}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2925719673612627998, guid: 7ed2b73d1657c884783743915bd7fea6, type: 3}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[2]'
-      value: 
-      objectReference: {fileID: 5965163987395864224, guid: 1e5c86d539256c3419c02801c89a9df1, type: 3}
     - target: {fileID: 6077320948757513895, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1161,6 +1141,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1467128476857597657, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
       insertIndex: -1
       addedObject: {fileID: 97855032}
+    - targetCorrespondingSourceObject: {fileID: 1467128476857597657, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 97855036}
   m_SourcePrefab: {fileID: 100100000, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
 --- !u!4 &97855029 stripped
 Transform:
@@ -1198,6 +1181,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 0.14999999, z: 1}
   m_Center: {x: 0, y: 0.07499998, z: 0}
+--- !u!114 &97855036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97855031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125e28a9147f61345a5acc72291ef581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuttingTime: 5
+  burnTime: 10
+  PlacedIngredience: {fileID: 0}
+  PSpot: {fileID: 97855030}
+  isPlaced: 0
+  isStove: 0
+  isCuttingBoard: 1
 --- !u!1001 &115210723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5099,10 +5101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125e28a9147f61345a5acc72291ef581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuttingTime: 0
+  cuttingTime: 5
+  burnTime: 10
   PlacedIngredience: {fileID: 0}
   PSpot: {fileID: 970902981}
   isPlaced: 0
+  isStove: 1
+  isCuttingBoard: 0
 --- !u!1 &380166091
 GameObject:
   m_ObjectHideFlags: 0
@@ -5774,37 +5779,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: PSpot
-      value: 
-      objectReference: {fileID: 412623730}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: cuttableIngredience.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[0]'
-      value: 
-      objectReference: {fileID: 6671679406258060098, guid: 194ba6e26cc5fee4597cacb688ace853, type: 3}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2925719673612627998, guid: 7ed2b73d1657c884783743915bd7fea6, type: 3}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[2]'
-      value: 
-      objectReference: {fileID: 5965163987395864224, guid: 1e5c86d539256c3419c02801c89a9df1, type: 3}
     - target: {fileID: 6077320948757513895, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1467128476857597657, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
       insertIndex: -1
       addedObject: {fileID: 412623732}
+    - targetCorrespondingSourceObject: {fileID: 1467128476857597657, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 412623736}
   m_SourcePrefab: {fileID: 100100000, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
 --- !u!4 &412623729 stripped
 Transform:
@@ -5842,6 +5831,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 0.14999999, z: 1}
   m_Center: {x: 0, y: 0.07499998, z: 0}
+--- !u!114 &412623736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412623731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125e28a9147f61345a5acc72291ef581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuttingTime: 5
+  burnTime: 10
+  PlacedIngredience: {fileID: 0}
+  PSpot: {fileID: 412623730}
+  isPlaced: 0
+  isStove: 0
+  isCuttingBoard: 1
 --- !u!1001 &412628149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9425,10 +9433,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125e28a9147f61345a5acc72291ef581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuttingTime: 0
+  cuttingTime: 5
+  burnTime: 10
   PlacedIngredience: {fileID: 0}
   PSpot: {fileID: 438285432}
   isPlaced: 0
+  isStove: 1
+  isCuttingBoard: 0
 --- !u!1 &603375588
 GameObject:
   m_ObjectHideFlags: 0
@@ -13820,41 +13831,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: PSpot
-      value: 
-      objectReference: {fileID: 28260336}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: cuttingTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: cuttableIngredience.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[0]'
-      value: 
-      objectReference: {fileID: 6671679406258060098, guid: 194ba6e26cc5fee4597cacb688ace853, type: 3}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2925719673612627998, guid: 7ed2b73d1657c884783743915bd7fea6, type: 3}
-    - target: {fileID: 2291214821788484619, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
-      propertyPath: 'cuttableIngredience.Array.data[2]'
-      value: 
-      objectReference: {fileID: 5965163987395864224, guid: 1e5c86d539256c3419c02801c89a9df1, type: 3}
     - target: {fileID: 6077320948757513895, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1467128476857597657, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1788553274}
+    - targetCorrespondingSourceObject: {fileID: 1467128476857597657, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1788553278}
   m_SourcePrefab: {fileID: 100100000, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
 --- !u!4 &956890776 stripped
 Transform:
@@ -15144,10 +15135,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125e28a9147f61345a5acc72291ef581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuttingTime: 0
+  cuttingTime: 5
+  burnTime: 10
   PlacedIngredience: {fileID: 0}
   PSpot: {fileID: 1432279496}
   isPlaced: 0
+  isStove: 1
+  isCuttingBoard: 0
 --- !u!1001 &1053921642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18975,10 +18969,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125e28a9147f61345a5acc72291ef581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuttingTime: 0
+  cuttingTime: 5
+  burnTime: 10
   PlacedIngredience: {fileID: 0}
   PSpot: {fileID: 1007056290}
   isPlaced: 0
+  isStove: 1
+  isCuttingBoard: 0
 --- !u!1001 &1318762752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22609,29 +22606,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   failedItem: {fileID: 0}
   used: 0
---- !u!136 &1514016975
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514016973}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.814573
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9072865, z: 0}
 --- !u!1 &1527680502
 GameObject:
   m_ObjectHideFlags: 0
@@ -26076,6 +26050,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 0.14999999, z: 1}
   m_Center: {x: 0, y: 0.07499998, z: 0}
+--- !u!114 &1788553278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788553270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125e28a9147f61345a5acc72291ef581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuttingTime: 5
+  burnTime: 10
+  PlacedIngredience: {fileID: 0}
+  PSpot: {fileID: 28260336}
+  isPlaced: 0
+  isStove: 0
+  isCuttingBoard: 1
 --- !u!1001 &1796144313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32441,9 +32434,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1567371642459245011, guid: 61f5c1314910af24488ca941acaec08a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1514016975}
     - targetCorrespondingSourceObject: {fileID: 1567371642459245011, guid: 61f5c1314910af24488ca941acaec08a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1514016974}
