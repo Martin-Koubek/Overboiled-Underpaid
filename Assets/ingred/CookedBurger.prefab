@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CuttVersion: {fileID: 0}
-  CookingVersion: {fileID: 0}
+  CookingVersion: {fileID: 8717683168504230777, guid: fe6ca787e5a183c43abcd0dfbcc56bc2, type: 3}
   isCuttable: 0
-  isCookable: 0
+  isCookable: 1
 --- !u!65 &6522684223397089826
 BoxCollider:
   m_ObjectHideFlags: 0

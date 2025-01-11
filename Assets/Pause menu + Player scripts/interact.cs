@@ -72,7 +72,13 @@ public class interact : MonoBehaviour
                         table.isPlaced = true;
                         Place(table.placeSpot);
                     }
-                    return;
+                    else if (table.placedItem.TryGetComponent<dish>(out dish Dish))
+                    {
+                        Dish.PlacedIngredience.Add(heldItem);
+                        Destroy(heldItem);
+                        holding = false;
+                    }
+                    else return;
                 }
 
                 if (heldItem.GetComponent<ingred>())
