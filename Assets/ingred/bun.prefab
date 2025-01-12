@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 28583e9b0b1ec9640a0dd0fe723db12b, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 28583e9b0b1ec9640a0dd0fe723db12b, type: 3}
       propertyPath: m_TagString
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CuttVersion: {fileID: 5780455700121824678, guid: 4537cd63715b06445af3d865630c1161, type: 3}
   CookingVersion: {fileID: 1261724920361419926, guid: 3b9098468f89716448004c16c69f6448, type: 3}
+  BurdenVersion: {fileID: 0}
   isCuttable: 1
   isCookable: 0
   isBun: 1
@@ -139,7 +140,7 @@ MeshCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 5
   m_Convex: 1

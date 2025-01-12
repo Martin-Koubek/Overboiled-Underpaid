@@ -96,11 +96,12 @@ public class interact : MonoBehaviour
                         Place(Dish.dropSpot);
                         heldItem.transform.localPosition = Vector3.zero;
                         heldItem.TryGetComponent<Rigidbody>(out Rigidbody R);
-                        if (tillFreez == 0f)
-                        {
-                            R.constraints = RigidbodyConstraints.FreezeAll;
-                            tillFreez = 2f;
-                        }
+                        Dish.placed = true;
+                        //if (tillFreez == 0f)
+                        //{
+                        //    R.constraints = RigidbodyConstraints.FreezeAll;
+                        //    tillFreez = 2f;
+                        //}
                         
                     }
 

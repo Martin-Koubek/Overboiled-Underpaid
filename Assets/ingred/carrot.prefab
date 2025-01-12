@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5275183130357467842}
   - component: {fileID: 3447308364364947127}
   - component: {fileID: 4132606148987763606}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: food_ingredient_carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2527518839039774107}
   - component: {fileID: 6227788074359844098}
   - component: {fileID: 6591187673674724234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CuttVersion: {fileID: 5554303058568472779, guid: f00f7ab4e68f39d4eaee21f6a263bad3, type: 3}
   CookingVersion: {fileID: 0}
+  BurdenVersion: {fileID: 0}
   isCuttable: 1
   isCookable: 0
   isBun: 0
@@ -181,7 +182,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}

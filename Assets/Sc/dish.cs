@@ -3,35 +3,36 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class dish : MonoBehaviour
 {
     public bool isBowl;
     public bool isPlate;
+    public Collider Collider;
     public Transform dropSpot;
-    public float tillFreez = 3f;
+    public float tillFreez = 10f;
+    public bool placed;
     
     public List<GameObject> PlacedIngredience = new List<GameObject>();
    
     public void Update()
     {
-        tillFreez -= Time.deltaTime;
+        if (placed) tillFreez -= Time.deltaTime;
     }
 
-    void OnCollisionEnter(Collision Collision)
+    void OnTriggerEnter()
     {
-        if (Collision.gameObject.TryGetComponent<ingred>(out ingred I))
+        foreach(GameObject gameObject in PlacedIngredience)
         {
-            Debug.Log("entered");
-            I.TryGetComponent<Rigidbody>(out Rigidbody R);
+            gameObject.TryGetComponent<Rigidbody>(out Rigidbody Rig);
             if (tillFreez <= 0)
             {
                 Debug.Log("frozen");
-                R.constraints = RigidbodyConstraints.FreezeAll;
-                R.rotation = Quaternion.identity;
-                tillFreez += 3f;
+                Rig.constraints = RigidbodyConstraints.FreezeAll;
+                tillFreez = 10f;
+                placed = false;
             }
-
         }
     }
 }
