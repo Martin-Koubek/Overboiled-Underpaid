@@ -118,6 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ab1c5cc5bfbd64588c20a8244c8470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CuttVersion: {fileID: 5780455700121824678, guid: 4537cd63715b06445af3d865630c1161, type: 3}
+  CookingVersion: {fileID: 1261724920361419926, guid: 3b9098468f89716448004c16c69f6448, type: 3}
+  isCuttable: 1
+  isCookable: 0
+  isBun: 1
 --- !u!64 &-3767847282979183416
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -125,7 +130,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9172877439091312790}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e3da8e102f5e78a49b2a1d396b66adbb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

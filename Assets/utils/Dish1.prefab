@@ -167,12 +167,7 @@ MonoBehaviour:
   - {fileID: 4045870961403677634}
   - {fileID: 3407576186208809094}
   - {fileID: 3700101910692608591}
-  PlacedIngredience:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  PlacedIngredience: []
 --- !u!1 &3700101910692608591
 GameObject:
   m_ObjectHideFlags: 0

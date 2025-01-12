@@ -78,7 +78,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4899238018787222415}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e3da8e102f5e78a49b2a1d396b66adbb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -133,4 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CuttVersion: {fileID: 0}
+  CookingVersion: {fileID: 0}
   isCuttable: 0
+  isCookable: 0
+  isBun: 0

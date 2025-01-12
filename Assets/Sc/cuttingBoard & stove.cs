@@ -4,37 +4,58 @@ using UnityEngine.InputSystem.Android;
 
 public class cuttingBoard : MonoBehaviour
 {
-    public float cuttingTime = 5f;
-    public float burnTime = 10f;
+    private float StartcuttingTime = 10f;
+    private float StartburnTime = 20f;
+    public float cuttingTime;
+    public float burnTime;
     //reference na objeky
-    public GameObject PlacedIngredience;
+    public GameObject PlacedIngredienceA;
+    public GameObject PlacedIngredienceB;
     private GameObject ItemToDestroy;
     public Transform PSpot;
 
     public bool isPlaced;
     public bool isStove;
     public bool isCuttingBoard;
-    
 
+
+    public void Start()
+    {
+        isPlaced = false;
+        cuttingTime = StartcuttingTime;
+        burnTime = StartburnTime;
+    }
     private void Update()
     {
+        if (!isPlaced)
+        {
+            cuttingTime = StartcuttingTime;
+            burnTime = StartburnTime;
+        }
+
         if (isPlaced) 
         {
             cuttingTime -= Time.deltaTime;
             burnTime -= Time.deltaTime;
             if (isCuttingBoard)
             {
-                if (PlacedIngredience.TryGetComponent<ingred>(out ingred Ingred) && Ingred.isCuttable)
+                if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingred) && Ingred.isCuttable)
                 {
                     cutting(Ingred);
                 }
             }
+
             else if (isStove) {
-                if (PlacedIngredience.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable)
+                if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable)
                 {
                     cook(Ingredience);
                 }
             }
+        }
+        if (burnTime == 0f)
+        {
+            cuttingTime = StartcuttingTime;
+            burnTime = StartburnTime;
         }
     }
 
@@ -43,30 +64,43 @@ public class cuttingBoard : MonoBehaviour
     {
         if (cuttingTime <= 0)
         {
-            ItemToDestroy = PlacedIngredience;
-            PlacedIngredience = Instantiate(I.CuttVersion, PSpot);
-            Destroy(ItemToDestroy);
-            PlacedIngredience.transform.localPosition = Vector3.zero;
-            cuttingTime = 5;
-        }
+            if (I.isBun)
+            {
+                ItemToDestroy = PlacedIngredienceA;
+                PlacedIngredienceA = Instantiate(I.CuttVersion, PSpot);
+                PlacedIngredienceB = Instantiate(I.CookingVersion, PSpot);
+                Destroy(ItemToDestroy);
+                PlacedIngredienceA.transform.localPosition = Vector3.zero;
+                PlacedIngredienceB.transform.localPosition = Vector3.zero;
+                cuttingTime = 5;
+            }
+            else
+            {
+                ItemToDestroy = PlacedIngredienceA;
+                PlacedIngredienceA = Instantiate(I.CuttVersion, PSpot);
+                Destroy(ItemToDestroy);
+                PlacedIngredienceA.transform.localPosition = Vector3.zero;
+                cuttingTime = 5;
+            }
+            }
     }
     private void cook (ingred I)
     {
         if (cuttingTime <= 0)
         {
-            ItemToDestroy = PlacedIngredience;
-            PlacedIngredience = Instantiate(I.CookingVersion, PSpot);
+            ItemToDestroy = PlacedIngredienceA;
+            PlacedIngredienceA = Instantiate(I.CookingVersion, PSpot);
+            Instantiate(I.CookingVersion, PSpot);
             Destroy(ItemToDestroy);
-            PlacedIngredience.transform.localPosition = Vector3.zero;
+            PlacedIngredienceA.transform.localPosition = Vector3.zero;
         }
+
         if (burnTime <= 0)
         {
-            ItemToDestroy = PlacedIngredience;
-            PlacedIngredience = Instantiate(I.CookingVersion, PSpot);
+            ItemToDestroy = PlacedIngredienceA;
+            PlacedIngredienceA = Instantiate(I.BurdenVersion, PSpot);
             Destroy(ItemToDestroy);
-            PlacedIngredience.transform.localPosition = Vector3.zero;
-            burnTime = 10;
-            cuttingTime = 5;
+            PlacedIngredienceA.transform.localPosition = Vector3.zero;
         }
     }
 }

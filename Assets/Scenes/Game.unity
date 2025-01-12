@@ -20660,9 +20660,6 @@ MonoBehaviour:
   InteractMask:
     serializedVersion: 2
     m_Bits: 128
-  pan:
-    serializedVersion: 2
-    m_Bits: 512
   HitRange: 5
   holding: 0
 --- !u!1 &1409473753

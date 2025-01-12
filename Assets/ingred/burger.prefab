@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1801340459962897472}
   - component: {fileID: 524742433920234308}
-  - component: {fileID: 4743699051640819657}
   - component: {fileID: 4320686522286625833}
   m_Layer: 0
   m_Name: burger
@@ -62,27 +61,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4743699051640819657
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5313875200201292082}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.4571178, z: 1}
-  m_Center: {x: 0, y: 0.2714411, z: 0}
 --- !u!114 &4320686522286625833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,8 +75,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CuttVersion: {fileID: 0}
   CookingVersion: {fileID: 6327724290274301979, guid: 1a11b330cf3bf514499c2a00db3d5315, type: 3}
+  BurdenVersion: {fileID: 0}
   isCuttable: 0
   isCookable: 1
+  isBun: 0
 --- !u!1001 &1452431493516639419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,10 +134,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 59a3c069759508440825b3257f7de650, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1935858277032383587}
   m_SourcePrefab: {fileID: 100100000, guid: 59a3c069759508440825b3257f7de650, type: 3}
 --- !u!4 &1414882082678332240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 59a3c069759508440825b3257f7de650, type: 3}
   m_PrefabInstance: {fileID: 1452431493516639419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1795101641472147946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 59a3c069759508440825b3257f7de650, type: 3}
+  m_PrefabInstance: {fileID: 1452431493516639419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1935858277032383587
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795101641472147946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1675931065404318426, guid: 59a3c069759508440825b3257f7de650, type: 3}

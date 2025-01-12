@@ -1,6 +1,8 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
@@ -15,7 +17,6 @@ public class interact : MonoBehaviour
 
     public LayerMask PickUpMask;
     public LayerMask InteractMask;
-    public LayerMask pan;
     
     //dosah hr·Ëe
     public float HitRange = 5f;
@@ -24,8 +25,11 @@ public class interact : MonoBehaviour
     //raycast info
     public RaycastHit hit;
 
+    public float tillFreez = 2f;
+
     void Update()
     {
+        tillFreez -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.E))
         {
             Ray ray = new Ray(RayCastPoint.position, RayCastPoint.forward);
@@ -37,16 +41,13 @@ public class interact : MonoBehaviour
                     heldItem = Instantiate(s.FoodRef, holdSpot.transform.position, Quaternion.identity);
                     take();
                 }
-                //else if (hit.collider.GetComponent<ingred>())
-                //{
-                //    heldItem = hit.collider.gameObject;
-                //    take();
-                //}
+                
                 else if (hit.collider.gameObject.TryGetComponent<dishes>(out dishes d))
                 {
                     heldItem = Instantiate(d.dish, holdSpot.transform.position, Quaternion.identity);
                     take();
                 }
+
                 else if (hit.collider.gameObject.TryGetComponent<Table>(out Table table) && table.isPlaced)
                 {
                     heldItem = table.placedItem;
@@ -54,11 +55,27 @@ public class interact : MonoBehaviour
                     take();
                     table.isPlaced = false;
                 }
+
                 else if (hit.collider.gameObject.TryGetComponent<cuttingBoard>(out cuttingBoard c))
                 {
-                    heldItem = c.PlacedIngredience;
-                    c.isPlaced = false;
-                    take();
+                    if (c.PlacedIngredienceB == null)
+                    {
+                        heldItem = c.PlacedIngredienceA;
+                        c.isPlaced = false;
+                        take();
+                        //c.PlacedIngredienceA = null;
+                    }
+
+                    else if (c.PlacedIngredienceB != null) {
+
+                        if (c.PlacedIngredienceA != null && c.PlacedIngredienceB != null)
+                        {
+                            heldItem = c.PlacedIngredienceA;
+                            take();
+                            c.PlacedIngredienceA = c.PlacedIngredienceB;
+                            c.PlacedIngredienceB.gameObject.Equals(null);
+                        }
+                    }
                 }
             }
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
@@ -72,29 +89,36 @@ public class interact : MonoBehaviour
                         table.isPlaced = true;
                         Place(table.placeSpot);
                     }
+
                     else if (table.placedItem.TryGetComponent<dish>(out dish Dish))
                     {
                         Dish.PlacedIngredience.Add(heldItem);
-                        Destroy(heldItem);
-                        holding = false;
+                        Place(Dish.dropSpot);
+                        heldItem.transform.localPosition = Vector3.zero;
+                        heldItem.TryGetComponent<Rigidbody>(out Rigidbody R);
+                        if (tillFreez == 0f)
+                        {
+                            R.constraints = RigidbodyConstraints.FreezeAll;
+                            tillFreez = 2f;
+                        }
+                        
                     }
-                    else return;
+
                 }
 
                 if (heldItem.GetComponent<ingred>())
                 {
                     if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c))
                     {
-                        c.PlacedIngredience = heldItem;
+                        c.PlacedIngredienceA = heldItem;
                         c.isPlaced = true;
                         Place(c.PSpot);
                     }
+
                     if (hit.collider.TryGetComponent<trash>(out trash Trash))
                     {
-                        Trash.failedItem = heldItem.gameObject;
-                        heldItem.transform.SetParent(Trash.transform);
+                        Destroy(heldItem);
                         holding = false;
-                        Trash.used = true;
                     }
                 }
             }
@@ -126,6 +150,10 @@ public class interact : MonoBehaviour
         heldItem.GetComponent<Rigidbody>().isKinematic = false;
         holding = false;
     }
+    //public void placeOnPlate()
+    //{
+
+    //}
 }
 
 
