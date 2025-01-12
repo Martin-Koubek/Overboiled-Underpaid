@@ -10,26 +10,23 @@ public class dish : MonoBehaviour
     public bool isPlate;
     public Transform dropSpot;
     public float tillFreez = 3f;
-    [SerializeField]
-    private List<GameObject> ValidIngredienceBowl = new List<GameObject>();
-    [SerializeField]
-    private List<GameObject> ValidIngrediencePlate = new List<GameObject>() ;
     
     public List<GameObject> PlacedIngredience = new List<GameObject>();
-    
-
+   
     public void Update()
     {
-      tillFreez -= Time.deltaTime;  
+        tillFreez -= Time.deltaTime;
     }
 
-    public void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision Collision)
     {
-        if (collision.gameObject.TryGetComponent<ingred>(out ingred I))
+        if (Collision.gameObject.TryGetComponent<ingred>(out ingred I))
         {
+            Debug.Log("entered");
             I.TryGetComponent<Rigidbody>(out Rigidbody R);
-            if (tillFreez < 0)
+            if (tillFreez <= 0)
             {
+                Debug.Log("frozen");
                 R.constraints = RigidbodyConstraints.FreezeAll;
                 R.rotation = Quaternion.identity;
                 tillFreez += 3f;

@@ -154,6 +154,8 @@ MonoBehaviour:
   isBowl: 0
   isPlate: 1
   dropSpot: {fileID: 1278819671441819699}
+  Collider: {fileID: 2650794485095312924}
+  tillFreez: 3
   ValidIngredienceBowl:
   - {fileID: 8027918983066339765, guid: 87c3b3d37a3f244408e755803cb65b6c, type: 3}
   - {fileID: 4899238018787222415, guid: 894560db43b27494084fc9948883aee8, type: 3}
@@ -165,7 +167,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   PlacedIngredience: []
-  tillFreez: 3
 --- !u!65 &2650794485095312924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -185,8 +186,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.95000005, y: 0.7511655, z: 0.95}
-  m_Center: {x: 9.952734e-18, y: 0.37558275, z: -4.7657224e-17}
+  m_Size: {x: 0.95000005, y: 1.6568663, z: 0.95}
+  m_Center: {x: 5.0070205e-17, y: 0.82843316, z: -1.1317684e-16}
 --- !u!1 &7747702822926341900
 GameObject:
   m_ObjectHideFlags: 0
