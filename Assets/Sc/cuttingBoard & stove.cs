@@ -90,7 +90,6 @@ public class cuttingBoard : MonoBehaviour
         {
             ItemToDestroy = PlacedIngredienceA;
             PlacedIngredienceA = Instantiate(I.CookingVersion, PSpot);
-            Instantiate(I.CookingVersion, PSpot);
             Destroy(ItemToDestroy);
             PlacedIngredienceA.transform.localPosition = Vector3.zero;
         }
