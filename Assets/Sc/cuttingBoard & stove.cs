@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 
 public class cuttingBoard : MonoBehaviour
 {
-    private float StartcuttingTime = 10f;
-    private float StartburnTime = 20f;
+    private float StartcuttingTime = 5f;
+    private float StartburnTime = 10f;
     public float cuttingTime;
     public float burnTime;
     //reference na objeky
@@ -46,17 +45,13 @@ public class cuttingBoard : MonoBehaviour
             }
 
             else if (isStove) {
-                if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable)
+                if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable || Ingredience.isBurnable)
                 {
                     cook(Ingredience);
                 }
             }
         }
-        if (burnTime == 0f)
-        {
-            cuttingTime = StartcuttingTime;
-            burnTime = StartburnTime;
-        }
+        
     }
 
 
@@ -86,7 +81,7 @@ public class cuttingBoard : MonoBehaviour
     }
     private void cook (ingred I)
     {
-        if (cuttingTime <= 0)
+        if (cuttingTime <= 0 && I.isCookable)
         {
             ItemToDestroy = PlacedIngredienceA;
             PlacedIngredienceA = Instantiate(I.CookingVersion, PSpot);
@@ -94,12 +89,13 @@ public class cuttingBoard : MonoBehaviour
             PlacedIngredienceA.transform.localPosition = Vector3.zero;
         }
 
-        if (burnTime <= 0)
+        else if (burnTime <= 0 && I.isBurnable)
         {
             ItemToDestroy = PlacedIngredienceA;
             PlacedIngredienceA = Instantiate(I.BurdenVersion, PSpot);
             Destroy(ItemToDestroy);
             PlacedIngredienceA.transform.localPosition = Vector3.zero;
+
         }
     }
 }

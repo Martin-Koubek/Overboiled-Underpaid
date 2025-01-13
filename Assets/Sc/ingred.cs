@@ -7,6 +7,7 @@ public class ingred : MonoBehaviour
     public GameObject CookingVersion;
     public GameObject BurdenVersion;
     public bool isCuttable;
+    public bool isBurnable;
     public bool isCookable;
     public bool isBun;
 }

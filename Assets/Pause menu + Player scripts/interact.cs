@@ -2,7 +2,6 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
@@ -61,19 +60,19 @@ public class interact : MonoBehaviour
                     if (c.PlacedIngredienceB == null)
                     {
                         heldItem = c.PlacedIngredienceA;
+                        c.PlacedIngredienceA = null;
                         c.isPlaced = false;
                         take();
-                        //c.PlacedIngredienceA = null;
                     }
 
                     else if (c.PlacedIngredienceB != null) {
 
-                        if (c.PlacedIngredienceA != null && c.PlacedIngredienceB != null)
+                        if (c.PlacedIngredienceA != null)
                         {
                             heldItem = c.PlacedIngredienceA;
                             take();
                             c.PlacedIngredienceA = c.PlacedIngredienceB;
-                            c.PlacedIngredienceB.gameObject.Equals(null);
+                            c.PlacedIngredienceB = null;
                         }
                     }
                 }
@@ -96,12 +95,8 @@ public class interact : MonoBehaviour
                         Place(Dish.dropSpot);
                         heldItem.transform.localPosition = Vector3.zero;
                         heldItem.TryGetComponent<Rigidbody>(out Rigidbody R);
-                        Dish.placed = true;
-                        //if (tillFreez == 0f)
-                        //{
-                        //    R.constraints = RigidbodyConstraints.FreezeAll;
-                        //    tillFreez = 2f;
-                        //}
+                        R.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;        
+                        
                         
                     }
 
@@ -116,12 +111,22 @@ public class interact : MonoBehaviour
                         Place(c.PSpot);
                     }
 
-                    if (hit.collider.TryGetComponent<trash>(out trash Trash))
+                    else if (hit.collider.TryGetComponent<trash>(out trash Trash))
                     {
                         Destroy(heldItem);
                         holding = false;
                     }
                 }
+
+                else if (heldItem.GetComponent<dish>())
+                {
+                    if(hit.collider.TryGetComponent<serveWindow>(out serveWindow serve))
+                    {
+                        Destroy(heldItem);
+                        serve.interaction();
+                    }
+                }
+
             }
         }
         //else if (holding && Input.GetKeyDown(KeyCode.Q))
