@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
@@ -24,7 +21,7 @@ public class GameMenu : MonoBehaviour
             {
                 pauseGame();
             }
-            else if(isPaused == true && isOptionOpen == false)
+            else if (isPaused == true && isOptionOpen == false)
             {
                 resume();
             }
@@ -37,7 +34,7 @@ public class GameMenu : MonoBehaviour
                 resume();
             }
         }
-       
+
 
     }
 
@@ -47,11 +44,11 @@ public class GameMenu : MonoBehaviour
         options.SetActive(true);
         isOptionOpen = true;
     }
-    public void closeSet() 
+    public void closeSet()
     {
         options.SetActive(false);
         PMenu.SetActive(true);
-        isOptionOpen = false;  
+        isOptionOpen = false;
     }
 
     public void pauseGame()

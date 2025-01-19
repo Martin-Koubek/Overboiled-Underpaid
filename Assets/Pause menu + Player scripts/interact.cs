@@ -88,8 +88,6 @@ public class interact : MonoBehaviour
                         heldItem.transform.localPosition = Vector3.zero;
                         heldItem.TryGetComponent<Rigidbody>(out Rigidbody R);
                         R.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
-
-
                     }
 
                 }
