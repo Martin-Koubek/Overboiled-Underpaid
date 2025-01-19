@@ -1,14 +1,7 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
-using UnityEngine.UI;
-using UnityEngineInternal;
 
 public class interact : MonoBehaviour
-{    
+{
     //reference na držený pøedmìt, mýsto držení, bod poèátku raycastu 
     public GameObject heldItem;
     public Transform RayCastPoint;
@@ -16,7 +9,7 @@ public class interact : MonoBehaviour
 
     public LayerMask PickUpMask;
     public LayerMask InteractMask;
-    
+
     //dosah hráèe
     public float HitRange = 5f;
     //drží hráè nìco ?
@@ -40,7 +33,7 @@ public class interact : MonoBehaviour
                     heldItem = Instantiate(s.FoodRef, holdSpot.transform.position, Quaternion.identity);
                     take();
                 }
-                
+
                 else if (hit.collider.gameObject.TryGetComponent<dishes>(out dishes d))
                 {
                     heldItem = Instantiate(d.dish, holdSpot.transform.position, Quaternion.identity);
@@ -57,7 +50,7 @@ public class interact : MonoBehaviour
 
                 else if (hit.collider.gameObject.TryGetComponent<cuttingBoard>(out cuttingBoard c))
                 {
-                    if (c.PlacedIngredienceB == null)
+                    if (c.PlacedIngredienceB == null && c.PlacedIngredienceA != null)
                     {
                         heldItem = c.PlacedIngredienceA;
                         c.PlacedIngredienceA = null;
@@ -65,22 +58,21 @@ public class interact : MonoBehaviour
                         take();
                     }
 
-                    else if (c.PlacedIngredienceB != null) {
+                    else if (c.PlacedIngredienceB != null && c.PlacedIngredienceA != null)
+                    {
+                        heldItem = c.PlacedIngredienceA;
+                        take();
+                        c.PlacedIngredienceA = c.PlacedIngredienceB;
+                        c.PlacedIngredienceB = null;
 
-                        if (c.PlacedIngredienceA != null)
-                        {
-                            heldItem = c.PlacedIngredienceA;
-                            take();
-                            c.PlacedIngredienceA = c.PlacedIngredienceB;
-                            c.PlacedIngredienceB = null;
-                        }
                     }
+                    else return;
                 }
             }
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
             {
 
-                if(hit.collider.gameObject.TryGetComponent<Table>(out Table table))
+                if (hit.collider.gameObject.TryGetComponent<Table>(out Table table))
                 {
                     if (!table.isPlaced)
                     {
@@ -95,16 +87,16 @@ public class interact : MonoBehaviour
                         Place(Dish.dropSpot);
                         heldItem.transform.localPosition = Vector3.zero;
                         heldItem.TryGetComponent<Rigidbody>(out Rigidbody R);
-                        R.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;        
-                        
-                        
+                        R.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+
+
                     }
 
                 }
 
-                if (heldItem.GetComponent<ingred>())
+                if (heldItem.TryGetComponent<ingred>(out ingred ing))
                 {
-                    if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c))
+                    if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c) && !c.isPlaced && (c.isStove && ing.isCookable || ing.isBurnable) || (c.isCuttingBoard && ing.isCuttable))
                     {
                         c.PlacedIngredienceA = heldItem;
                         c.isPlaced = true;
@@ -120,7 +112,7 @@ public class interact : MonoBehaviour
 
                 else if (heldItem.GetComponent<dish>())
                 {
-                    if(hit.collider.TryGetComponent<serveWindow>(out serveWindow serve))
+                    if (hit.collider.TryGetComponent<serveWindow>(out serveWindow serve))
                     {
                         Destroy(heldItem);
                         serve.interaction();
@@ -134,7 +126,7 @@ public class interact : MonoBehaviour
         //    drop();
         //}
     }
-       
+
     //public void drop()
     //{
     //    heldItem.transform.SetParent(null);

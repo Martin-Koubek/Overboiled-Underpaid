@@ -26,6 +26,7 @@ public class cuttingBoard : MonoBehaviour
 
     [SerializeField] private GameObject playerCamera;
 
+    
     public void Start()
     {
         if (isCuttingBoard)
@@ -70,36 +71,40 @@ public class cuttingBoard : MonoBehaviour
         {
             if (isCuttingBoard)
             {
-                progress.gameObject.SetActive(true);
-                cuttingTime += Time.deltaTime;
-                Image.fillAmount = cuttingTime / 5;
-
-                if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred ingred) && ingred.isCuttable)
+                if(PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingred) && !Ingred.isCuttable)
                 {
+                    progress.gameObject.SetActive(false);
+                }
+
+                else if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred ingred) && ingred.isCuttable)
+                {
+                    progress.gameObject.SetActive(true);
+                    cuttingTime += Time.deltaTime;
+                    Image.fillAmount = cuttingTime / 5;
                     cutting(ingred);
                 }
             }
 
             else if (isStove)
             {
-                if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred ing) && ing.isBurnable)
-                {
-                    cookingTime = 5f;
-                    Image.fillAmount = 1;
-                }
-                progress.gameObject.SetActive(true);
-                cookingTime += Time.deltaTime;
-                if (cookingTime <= 5f)
-                {
-                    Image.fillAmount += Time.deltaTime / 5;
-                }
-                else if (cookingTime > 5f)
-                {
-                    burnImage.fillAmount += Time.deltaTime / 5;
-                }
+                            
                 if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable || Ingredience.isBurnable)
                 {
+                    progress.gameObject.SetActive(true);
+                    cookingTime += Time.deltaTime;
                     cook(Ingredience);
+                    if (cookingTime <= 5f)
+                    {
+                        Image.fillAmount += Time.deltaTime / 5;
+                    }
+                    else if (cookingTime > 5f)
+                    {
+                        burnImage.fillAmount += Time.deltaTime / 5;
+                    }
+                }
+                else if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred ingredience) && !Ingredience.isCookable || !Ingredience.isBurnable)
+                {
+                    progress.gameObject.SetActive(false);
                 }
             }
         }
