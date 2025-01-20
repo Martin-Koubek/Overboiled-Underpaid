@@ -94,7 +94,7 @@ public class interact : MonoBehaviour
 
                 if (heldItem.TryGetComponent<ingred>(out ingred ing))
                 {
-                    if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c) && !c.isPlaced && (c.isStove && ing.isCookable || ing.isBurnable) || (c.isCuttingBoard && ing.isCuttable))
+                    if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c) && !c.isPlaced && (c.isStove && ing.isCookable || ing.isBurnable || (c.isCuttingBoard && ing.isCuttable)))
                     {
                         c.PlacedIngredienceA = heldItem;
                         c.isPlaced = true;
@@ -108,12 +108,20 @@ public class interact : MonoBehaviour
                     }
                 }
 
-                else if (heldItem.GetComponent<dish>())
+                else if (heldItem.TryGetComponent<dish>(out dish dish))
                 {
                     if (hit.collider.TryGetComponent<serveWindow>(out serveWindow serve))
                     {
                         Destroy(heldItem);
-                        serve.interaction();
+                        //serve.interaction();
+                    }
+                    else if (hit.collider.TryGetComponent<trash>(out trash Trash))
+                    {
+                        foreach(GameObject placed in dish.PlacedIngredience)
+                        {
+                            Destroy(placed);
+                        }
+                        dish.PlacedIngredience.Clear();
                     }
                 }
 
