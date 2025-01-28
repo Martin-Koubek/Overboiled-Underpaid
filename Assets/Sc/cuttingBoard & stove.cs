@@ -11,6 +11,8 @@ public class cuttingBoard : MonoBehaviour
     private GameObject ItemToDestroy;
     public Transform PSpot;
 
+    private float firstTime;
+
     [SerializeField]
     private Image progress;
     [SerializeField]
@@ -80,26 +82,28 @@ public class cuttingBoard : MonoBehaviour
                 {
                     progress.gameObject.SetActive(true);
                     cuttingTime += Time.deltaTime;
-                    Image.fillAmount = cuttingTime / 5;
+                    Image.fillAmount = cuttingTime / ingred.prepTime;
                     cutting(ingred);
                 }
             }
 
             else if (isStove)
             {
+                
                             
                 if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable || Ingredience.isBurnable)
                 {
                     progress.gameObject.SetActive(true);
                     cookingTime += Time.deltaTime;
                     cook(Ingredience);
-                    if (cookingTime <= 5f)
+                    if (cookingTime <= Ingredience.prepTime)
                     {
-                        Image.fillAmount += Time.deltaTime / 5;
+                        firstTime = Ingredience.prepTime;
+                        Image.fillAmount += Time.deltaTime / Ingredience.prepTime;
                     }
-                    else if (cookingTime > 5f)
+                    else if (cookingTime > firstTime)
                     {
-                        burnImage.fillAmount += Time.deltaTime / 5;
+                        burnImage.fillAmount += Time.deltaTime / Ingredience.prepTime;
                     }
                 }
                 else if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred ingredience) && !Ingredience.isCookable || !Ingredience.isBurnable)
@@ -114,7 +118,7 @@ public class cuttingBoard : MonoBehaviour
 
     private void cutting(ingred I)
     {
-        if (cuttingTime >= 5f)
+        if (cuttingTime >= I.prepTime)
         {
             if (I.isBun)
             {
@@ -136,7 +140,8 @@ public class cuttingBoard : MonoBehaviour
     }
     private void cook(ingred I)
     {
-        if (cookingTime >= 5f && I.isCookable)
+
+        if (cookingTime >= I.prepTime && I.isCookable)
         {
             ItemToDestroy = PlacedIngredienceA;
             PlacedIngredienceA = Instantiate(I.CookingVersion, PSpot);
@@ -144,7 +149,7 @@ public class cuttingBoard : MonoBehaviour
             PlacedIngredienceA.transform.localPosition = Vector3.zero;
         }
 
-        else if (cookingTime >= 10f && I.isBurnable)
+        else if (cookingTime >= I.prepTime && I.isBurnable)
         {
             ItemToDestroy = PlacedIngredienceA;
             PlacedIngredienceA = Instantiate(I.BurdenVersion, PSpot);

@@ -114,6 +114,8 @@ MonoBehaviour:
   BurdenVersion: {fileID: 3553630617449119936, guid: fe6ca787e5a183c43abcd0dfbcc56bc2, type: 3}
   isCuttable: 0
   isBurnable: 1
+  prepTime: 8
+  finalCount: 0
   isCookable: 0
   isBun: 0
 --- !u!54 &1719098261391808025

@@ -114,6 +114,9 @@ MonoBehaviour:
   BurdenVersion: {fileID: 0}
   isCuttable: 0
   isBurnable: 0
+  prepTime: 5
+  burned: 0
+  finalCount: 0
   isCookable: 0
   isBun: 0
 --- !u!54 &988954251527930104

@@ -122,6 +122,10 @@ MonoBehaviour:
   CookingVersion: {fileID: 1261724920361419926, guid: 3b9098468f89716448004c16c69f6448, type: 3}
   BurdenVersion: {fileID: 0}
   isCuttable: 1
+  isBurnable: 0
+  prepTime: 4
+  burned: 0
+  finalCount: 0
   isCookable: 0
   isBun: 1
 --- !u!64 &-3767847282979183416

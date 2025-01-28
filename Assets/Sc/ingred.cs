@@ -8,6 +8,8 @@ public class ingred : MonoBehaviour
     public GameObject BurdenVersion;
     public bool isCuttable;
     public bool isBurnable;
+    public float prepTime;
+    public int finalCount;
     public bool isCookable;
     public bool isBun;
 }
