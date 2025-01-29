@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 294975280297877532}
   - component: {fileID: 657517480260751975}
   m_Layer: 10
-  m_Name: cuttCarrot
+  m_Name: carrotSlice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,6 +72,10 @@ MonoBehaviour:
   CookingVersion: {fileID: 0}
   BurdenVersion: {fileID: 0}
   isCuttable: 0
+  isBurnable: 0
+  prepTime: 0
+  Name: carrotSlice
+  finalCount: 0
   isCookable: 0
   isBun: 0
 --- !u!54 &657517480260751975

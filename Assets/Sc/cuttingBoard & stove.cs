@@ -89,21 +89,19 @@ public class cuttingBoard : MonoBehaviour
 
             else if (isStove)
             {
-                
-                            
                 if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable || Ingredience.isBurnable)
                 {
                     progress.gameObject.SetActive(true);
                     cookingTime += Time.deltaTime;
                     cook(Ingredience);
-                    if (cookingTime <= Ingredience.prepTime)
+                    if (cookingTime <= Ingredience.prepTime && Ingredience.isCookable)
                     {
                         firstTime = Ingredience.prepTime;
                         Image.fillAmount += Time.deltaTime / Ingredience.prepTime;
                     }
-                    else if (cookingTime > firstTime)
+                    else if (cookingTime < Ingredience.prepTime && Ingredience.isBurnable)
                     {
-                        burnImage.fillAmount += Time.deltaTime / Ingredience.prepTime;
+                        burnImage.fillAmount += Time.deltaTime / (Ingredience.prepTime/2);
                     }
                 }
                 else if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred ingredience) && !Ingredience.isCookable || !Ingredience.isBurnable)

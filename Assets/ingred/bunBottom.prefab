@@ -50,11 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1f17f59d44bae18438e34b7521f60c01, type: 3}
       propertyPath: m_Name
-      value: food_ingredient_bun_bottom
+      value: bun bottom
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1f17f59d44bae18438e34b7521f60c01, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f17f59d44bae18438e34b7521f60c01, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -91,6 +95,10 @@ MonoBehaviour:
   CookingVersion: {fileID: 0}
   BurdenVersion: {fileID: 0}
   isCuttable: 0
+  isBurnable: 0
+  prepTime: 0
+  Name: bunBottom
+  finalCount: 0
   isCookable: 0
   isBun: 0
 --- !u!64 &2816909153107994934

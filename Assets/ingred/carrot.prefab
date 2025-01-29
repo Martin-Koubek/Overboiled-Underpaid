@@ -164,6 +164,10 @@ MonoBehaviour:
   CookingVersion: {fileID: 0}
   BurdenVersion: {fileID: 0}
   isCuttable: 1
+  isBurnable: 0
+  prepTime: 0
+  Name: carrot
+  finalCount: 0
   isCookable: 0
   isBun: 0
 --- !u!65 &6591187673674724234

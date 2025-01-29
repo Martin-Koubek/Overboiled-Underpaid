@@ -892,7 +892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036512894892845911, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_TagString
-      value: table
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4377868904880235516, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_Layer
@@ -1064,7 +1064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036512894892845911, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_TagString
-      value: table
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4377868904880235516, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_Layer
@@ -3228,7 +3228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 875cb47a24b0928478b292b4a745ba10, type: 3}
       propertyPath: m_TagString
-      value: tomato
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5617,7 +5617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a7a1c890a95af6748ba52b18ea4b2d5e, type: 3}
       propertyPath: m_TagString
-      value: bun storage
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8242,7 +8242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036512894892845911, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_TagString
-      value: table
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4377868904880235516, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_Layer
@@ -10626,6 +10626,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 74338292}
     m_Modifications:
+    - target: {fileID: 442203045373811912, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1405937804364256863, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -10690,10 +10694,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 4740981775090443739, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5605475587698797163, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 612567603}
+    - target: {fileID: 5991454142987257997, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10766,7 +10778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_TagString
-      value: burger meat storage
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3008399662495924479, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_Layer
@@ -10774,7 +10786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3008399662495924479, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_TagString
-      value: steak storage
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11288,7 +11300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036512894892845911, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_TagString
-      value: table
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4377868904880235516, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_Layer
@@ -14783,7 +14795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036512894892845911, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_TagString
-      value: table
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4377868904880235516, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_Layer
@@ -15422,7 +15434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036512894892845911, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_TagString
-      value: table
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4377868904880235516, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_Layer
@@ -16927,7 +16939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036512894892845911, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_TagString
-      value: table
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4377868904880235516, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_Layer
@@ -19490,6 +19502,7 @@ MonoBehaviour:
   heldItem: {fileID: 0}
   RayCastPoint: {fileID: 330585546}
   holdSpot: {fileID: 530322483}
+  OManager: {fileID: 1030210284}
   PickUpMask:
     serializedVersion: 2
     m_Bits: 256
@@ -19731,7 +19744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_TagString
-      value: cheese storage
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3008399662495924479, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_Layer
@@ -19739,7 +19752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3008399662495924479, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_TagString
-      value: cheese storage
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20910,7 +20923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_TagString
-      value: burger meat storage
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3008399662495924479, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_Layer
@@ -20918,7 +20931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3008399662495924479, guid: ac2cf7fc31221334583c06728e4bd9a6, type: 3}
       propertyPath: m_TagString
-      value: burger meat storage
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24834,7 +24847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 875cb47a24b0928478b292b4a745ba10, type: 3}
       propertyPath: m_TagString
-      value: tomato storage
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25398,7 +25411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9631d8453e87c8f4bb872d50adb8e8f8, type: 3}
       propertyPath: m_TagString
-      value: carot storage
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27652,7 +27665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4eae603d2e0b1e24da018f2c8c5a232b, type: 3}
       propertyPath: m_TagString
-      value: ham storage
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28861,7 +28874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036512894892845911, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_TagString
-      value: table
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7890666419371376985, guid: 8387279c36689314b9c0b9973c9677fc, type: 3}
       propertyPath: m_Size.y
@@ -29231,7 +29244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ebda9a46e0855da44a8223ab3d83474a, type: 3}
       propertyPath: m_TagString
-      value: lettuce storage
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

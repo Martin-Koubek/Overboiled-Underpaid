@@ -113,16 +113,25 @@ public class interact : MonoBehaviour
                 else if (heldItem.TryGetComponent<dish>(out dish dish))
                 {
                     if (hit.collider.TryGetComponent<serveWindow>(out serveWindow serve))
-                    {   
+                    {
                         OManager.TryGetComponent<recepty>(out recepty r);
-                        if (r.Order == dish.PlacedIngredience)
+                        if (r.Order.Count == dish.PlacedIngredience.Count)
                         {
+                            for (int i = 0; i < r.Order.Count - 1; i++)
+                            {
+                                if (r.Order[i].GetComponent<ingred>().Name != dish.PlacedIngredience[i].GetComponent<ingred>().Name)
+                                {
+                                    Debug.Log("Wrong Order");
+                                    return;
+                                }
+                            }
                             Destroy(heldItem);
+                            holding=false;
                             Debug.Log("Good");
                         }
                         else
                         {
-                            Debug.Log("Wrong");
+                            Debug.Log("Wrong length");
                         }
                     }
                     else if (hit.collider.TryGetComponent<trash>(out trash Trash))

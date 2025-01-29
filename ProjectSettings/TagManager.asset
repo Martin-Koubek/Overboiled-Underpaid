@@ -4,13 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - ham
   - letus
   - tomato
+  - bowls
   - carot
   - buns
   - chees
-  - coocked
   - raw
   - burned
   - ham storage
@@ -27,10 +26,6 @@ TagManager:
   - ingred
   - pan
   - table
-  - plates
-  - bowls
-  - Burger
-  - dish
   layers:
   - Default
   - TransparentFX

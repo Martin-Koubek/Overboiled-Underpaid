@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 634a9c1d62e8955408da8552a23a7663, type: 3}
       propertyPath: m_TagString
-      value: ingred
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -124,7 +124,7 @@ MonoBehaviour:
   isCuttable: 1
   isBurnable: 0
   prepTime: 5
-  burned: 0
+  Name: lettuce
   finalCount: 0
   isCookable: 0
   isBun: 0

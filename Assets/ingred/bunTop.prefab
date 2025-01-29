@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c736f2cd16594e348a33ec5b9dfc21e5, type: 3}
       propertyPath: m_Name
-      value: food_ingredient_bun_top
+      value: bunTop
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c736f2cd16594e348a33ec5b9dfc21e5, type: 3}
       propertyPath: m_Layer
@@ -91,6 +91,10 @@ MonoBehaviour:
   CookingVersion: {fileID: 0}
   BurdenVersion: {fileID: 0}
   isCuttable: 0
+  isBurnable: 0
+  prepTime: 0
+  Name: bunTop
+  finalCount: 0
   isCookable: 0
   isBun: 0
 --- !u!64 &-7623767850322913286

@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a57c3f66ab887c40ba174533afe1c07, type: 3}
       propertyPath: m_Name
-      value: BurnedBurger
+      value: burnedBurger
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5a57c3f66ab887c40ba174533afe1c07, type: 3}
       propertyPath: m_Layer
@@ -115,7 +115,7 @@ MonoBehaviour:
   isCuttable: 0
   isBurnable: 0
   prepTime: 5
-  burned: 0
+  Name: burnedBurger
   finalCount: 0
   isCookable: 0
   isBun: 0
