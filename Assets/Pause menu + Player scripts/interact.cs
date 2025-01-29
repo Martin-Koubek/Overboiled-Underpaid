@@ -6,6 +6,8 @@ public class interact : MonoBehaviour
     public GameObject heldItem;
     public Transform RayCastPoint;
     public GameObject holdSpot;
+    [SerializeField]
+    private GameObject OManager;
 
     public LayerMask PickUpMask;
     public LayerMask InteractMask;
@@ -111,8 +113,8 @@ public class interact : MonoBehaviour
                 else if (heldItem.TryGetComponent<dish>(out dish dish))
                 {
                     if (hit.collider.TryGetComponent<serveWindow>(out serveWindow serve))
-                    {
-                        TryGetComponent<recepty>(out recepty r);
+                    {   
+                        OManager.TryGetComponent<recepty>(out recepty r);
                         if (r.Order == dish.PlacedIngredience)
                         {
                             Destroy(heldItem);
@@ -128,7 +130,7 @@ public class interact : MonoBehaviour
                         foreach(GameObject placed in dish.PlacedIngredience)
                         {
                             Destroy(placed);
-                        }
+                        }   
                         dish.PlacedIngredience.Clear();
                     }
                 }

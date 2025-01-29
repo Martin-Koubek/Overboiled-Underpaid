@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class serveWindow : MonoBehaviour
@@ -7,8 +8,6 @@ public class serveWindow : MonoBehaviour
     public AnimatorControllerParameter contr;
     //Animation animation = new();
     public bool interacted;
-
-
     public void interaction()
     {
         /*animation.clip = clip;

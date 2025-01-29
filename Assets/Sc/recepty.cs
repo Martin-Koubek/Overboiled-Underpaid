@@ -12,7 +12,7 @@ public class recepty : MonoBehaviour
     private List<GameObject> TempValidIngred = new List<GameObject>();
     [SerializeField]
     private List<GameObject> validEnd = new List<GameObject>();
-    [SerializeField]
+
     public List<GameObject> Order = new List<GameObject>();
     private int MaxOrders = 4;
     private int MaxIngred = 6;
@@ -21,7 +21,13 @@ public class recepty : MonoBehaviour
     {
         TempValidIngred = validIngred;
         maxPlate = Random.Range(2, MaxIngred);
-
+        newOrder();
+    }
+    public void Update()
+    {
+    }
+    private void newOrder()
+    {
         for (int i = 0; i <= maxPlate; i++)
         {
             if (i == 0)
@@ -44,8 +50,5 @@ public class recepty : MonoBehaviour
             }
 
         }
-    }
-    public void Update()
-    {
     }
 }
