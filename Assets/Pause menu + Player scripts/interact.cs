@@ -112,9 +112,16 @@ public class interact : MonoBehaviour
                 {
                     if (hit.collider.TryGetComponent<serveWindow>(out serveWindow serve))
                     {
-                        Destroy(heldItem);
-                        holding = false;
-                        //serve.interaction();
+                        TryGetComponent<recepty>(out recepty r);
+                        if (r.Order == dish.PlacedIngredience)
+                        {
+                            Destroy(heldItem);
+                            Debug.Log("Good");
+                        }
+                        else
+                        {
+                            Debug.Log("Wrong");
+                        }
                     }
                     else if (hit.collider.TryGetComponent<trash>(out trash Trash))
                     {
