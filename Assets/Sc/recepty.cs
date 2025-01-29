@@ -19,15 +19,13 @@ public class recepty : MonoBehaviour
     private int maxPlate;
     public void Start()
     {
-        TempValidIngred = validIngred;
-        maxPlate = Random.Range(2, MaxIngred);
+        text.text = null;
         newOrder();
-    }
-    public void Update()
-    {
     }
     private void newOrder()
     {
+        TempValidIngred = validIngred;
+        maxPlate = Random.Range(2, MaxIngred);
         for (int i = 0; i <= maxPlate; i++)
         {
             if (i == 0)
@@ -49,6 +47,10 @@ public class recepty : MonoBehaviour
 
             }
 
+        }
+        foreach(GameObject ing in Order)
+        {
+            text.text += ing.name + " "; 
         }
     }
 }
