@@ -113,6 +113,7 @@ public class interact : MonoBehaviour
                     if (hit.collider.TryGetComponent<serveWindow>(out serveWindow serve))
                     {
                         Destroy(heldItem);
+                        holding = false;
                         //serve.interaction();
                     }
                     else if (hit.collider.TryGetComponent<trash>(out trash Trash))
