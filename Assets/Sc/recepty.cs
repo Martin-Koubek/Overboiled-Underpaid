@@ -15,7 +15,7 @@ public class recepty : MonoBehaviour
 
     public List<GameObject> Order = new List<GameObject>();
     private int MaxOrders = 4;
-    private int MaxIngred = 6;
+    private int MaxIngred = 8;
     private int maxPlate;
     public void Start()
     {
@@ -34,16 +34,17 @@ public class recepty : MonoBehaviour
             }
             else if (i == maxPlate)
             {
-                //int last = Random.Range(0, validEnd.Count);
                 Order.Add(validEnd[0]);
-                //TempValidIngred = validIngred;
-
             }
             else
             {
                 int ingred = Random.Range(0, TempValidIngred.Count - 1);
-                Order.Add(TempValidIngred[ingred]);
-                //TempValidIngred.RemoveAt(ingred);
+                if (Order.Contains(TempValidIngred[ingred]))
+                {
+                    TempValidIngred.Remove(TempValidIngred[ingred]);
+                    ingred = Random.Range(0, TempValidIngred.Count - 1);
+                }
+                else { Order.Add(TempValidIngred[ingred]); }
 
             }
 
