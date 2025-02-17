@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class recepty : MonoBehaviour
-{
-    public TMPro.TextMeshProUGUI text;
+public abstract class recepty : MonoBehaviour
+{ 
     [SerializeField]
     private List<GameObject> validStart = new List<GameObject>();
     [SerializeField]
@@ -14,15 +13,14 @@ public class recepty : MonoBehaviour
     private List<GameObject> validEnd = new List<GameObject>();
 
     public List<GameObject> Order = new List<GameObject>();
-    private int MaxOrders = 4;
+    private int MaxOrders = 3;
     private int MaxIngred = 8;
     private int maxPlate;
     public void Start()
     {
-        text.text = null;
         newOrder();
     }
-    private void newOrder()
+    public void newOrder()
     {
         TempValidIngred = validIngred;
         maxPlate = Random.Range(2, MaxIngred);
@@ -48,10 +46,6 @@ public class recepty : MonoBehaviour
 
             }
 
-        }
-        foreach(GameObject ing in Order)
-        {
-            text.text += ing.name + " "; 
         }
     }
 }
