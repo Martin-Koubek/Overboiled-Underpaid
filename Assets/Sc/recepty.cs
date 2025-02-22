@@ -13,39 +13,45 @@ public abstract class recepty : MonoBehaviour
     private List<GameObject> validEnd = new List<GameObject>();
 
     public List<GameObject> Order = new List<GameObject>();
-    private int MaxOrders = 3;
-    private int MaxIngred = 8;
+    private int MaxIngred = 6;
     private int maxPlate;
+    private bool newNumb = false;
     public void Start()
     {
         newOrder();
     }
     public void newOrder()
     {
-        TempValidIngred = validIngred;
-        maxPlate = Random.Range(2, MaxIngred);
-        for (int i = 0; i <= maxPlate; i++)
+        if (!newNumb)
         {
-            if (i == 0)
+            TempValidIngred = validIngred;
+            maxPlate = Random.Range(2, MaxIngred);
+            newNumb = true;
+        }
+        else
+        {
+            for (int i = 0; i <= maxPlate; i++)
             {
-                Order.Add(validStart[0]);
-            }
-            else if (i == maxPlate)
-            {
-                Order.Add(validEnd[0]);
-            }
-            else
-            {
-                int ingred = Random.Range(0, TempValidIngred.Count - 1);
-                if (Order.Contains(TempValidIngred[ingred]))
+                if (i == 0)
                 {
-                    TempValidIngred.Remove(TempValidIngred[ingred]);
-                    ingred = Random.Range(0, TempValidIngred.Count - 1);
+                    Order.Add(validStart[0]);
                 }
-                else { Order.Add(TempValidIngred[ingred]); }
+                else if (i == maxPlate)
+                {
+                    Order.Add(validEnd[0]);
+                }
+                else
+                {
+                    int ingred = Random.Range(0, TempValidIngred.Count - 1);
+                    if (Order.Contains(TempValidIngred[ingred]))
+                    {
+                        TempValidIngred.Remove(TempValidIngred[ingred]);
+                    }
+                    else { Order.Add(TempValidIngred[ingred]); }
+
+                }
 
             }
-
         }
     }
 }
