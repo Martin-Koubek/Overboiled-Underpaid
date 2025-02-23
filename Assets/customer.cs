@@ -21,19 +21,27 @@ public class customer : recepty
             spotToAdd = 0;
             haveOrder = true;
         }
-        else if (haveOrder)
+        else
         {
-            for (int i = 0; i < MyOrder.Count - 1; i++)
+            showOrder();
+        }
+    }
+    private void showOrder() {
+        for (int o = 0; o < MyOrder.Count-1; o++)
+        {
+            for (int i = 0; i < showCase.Count - 1; i++)
             {
-                foreach (GameObject gm in showCase)
+                if (MyOrder[o].name == showCase[i].name)
                 {
-                    if (gm.name == MyOrder[i].name)
-                    {
-                        Instantiate(gm, showSpot[i].transform);
-                    }
+                    Instantiate(showCase[i], showSpot[o].transform);
+                    spotToAdd++;
                 }
-
+                else if (spotToAdd >= MyOrder.Count)
+                {
+                    break;
+                }
             }
+
         }
     }
 }
