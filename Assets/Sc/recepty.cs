@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class recepty : MonoBehaviour
+public class recepty : MonoBehaviour
 { 
     [SerializeField]
     private List<GameObject> validStart = new List<GameObject>();
@@ -13,23 +14,20 @@ public abstract class recepty : MonoBehaviour
     private List<GameObject> validEnd = new List<GameObject>();
 
     public List<GameObject> Order = new List<GameObject>();
-    private int MaxIngred = 6;
+    private int MaxIngred = 7;
     private int maxPlate;
     private bool newNumb = false;
     public void Start()
     {
-        newOrder();
+        this.newOrder();
+        Debug.LogError(this.Order);
     }
+
     public void newOrder()
     {
-        if (!newNumb)
-        {
             TempValidIngred = validIngred;
             maxPlate = Random.Range(2, MaxIngred);
             newNumb = true;
-        }
-        else
-        {
             for (int i = 0; i <= maxPlate; i++)
             {
                 if (i == 0)
@@ -42,7 +40,8 @@ public abstract class recepty : MonoBehaviour
                 }
                 else
                 {
-                    int ingred = Random.Range(0, TempValidIngred.Count - 1);
+                    int ingred = Random.Range(0, TempValidIngred.Count);
+                    Debug.Log(TempValidIngred.Count);
                     if (Order.Contains(TempValidIngred[ingred]))
                     {
                         TempValidIngred.Remove(TempValidIngred[ingred]);
@@ -52,6 +51,6 @@ public abstract class recepty : MonoBehaviour
                 }
 
             }
-        }
+        
     }
 }

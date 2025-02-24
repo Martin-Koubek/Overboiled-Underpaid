@@ -7,40 +7,33 @@ public class customer : recepty
     private List<GameObject> showSpot = new();
     [SerializeField]
     private List<GameObject> showCase = new();
-    private List<GameObject> MyOrder = new();
     public List<GameObject> delivered = new();
-    public bool haveOrder = false;
-    int spotToAdd;
     private GameObject toAdd;
-    void Update()
+    void Start()
     {
-        if (!haveOrder)
-        {
-            newOrder();
-            MyOrder = Order;
-            spotToAdd = 0;
-            haveOrder = true;
-        }
-        else
-        {
-            showOrder();
-        }
+        base.Start();
+        showOrder();
     }
-    private void showOrder() {
-        for (int o = 0; o < MyOrder.Count-1; o++)
+    private void showOrder()
+    {
+        Debug.Log(Order.Count);
+        Debug.Log(base.Order.Count);
+            for (int o = 0; o < Order.Count; o++)
         {
-            for (int i = 0; i < showCase.Count - 1; i++)
-            {
-                if (MyOrder[o].name == showCase[i].name)
-                {
-                    Instantiate(showCase[i], showSpot[o].transform);
-                    spotToAdd++;
-                }
-                else if (spotToAdd >= MyOrder.Count)
-                {
-                    break;
-                }
-            }
+            Debug.Log(Order[o].name);
+
+            //    Debug.Log(o + "o");
+            //    for (int i = 0; i < showCase.Count; i++)
+            //    {
+            //        Debug.Log(i + "i");
+
+            //        if (Order[o].name == showCase[i].name)
+            //        {
+            Debug.Log(Order[o].name);
+            Instantiate(showCase.Find(a => a.name == Order[o].name), showSpot[o].transform);
+            //            spotToAdd++;
+            //        }
+            //    }
 
         }
     }
