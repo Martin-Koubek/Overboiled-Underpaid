@@ -26,6 +26,8 @@ TagManager:
   - ingred
   - pan
   - table
+  - plates
+  - Customer
   layers:
   - Default
   - TransparentFX

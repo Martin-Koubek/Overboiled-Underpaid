@@ -16,18 +16,16 @@ public class recepty : MonoBehaviour
     public List<GameObject> Order = new List<GameObject>();
     private int MaxIngred = 7;
     private int maxPlate;
-    private bool newNumb = false;
     public void Start()
     {
         this.newOrder();
-        Debug.LogError(this.Order);
+        //Debug.LogError(this.Order);
     }
 
     public void newOrder()
     {
             TempValidIngred = validIngred;
             maxPlate = Random.Range(2, MaxIngred);
-            newNumb = true;
             for (int i = 0; i <= maxPlate; i++)
             {
                 if (i == 0)
