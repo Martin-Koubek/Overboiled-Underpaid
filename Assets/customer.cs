@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class customer : recepty
 {
@@ -8,7 +9,9 @@ public class customer : recepty
     [SerializeField]
     private List<GameObject> showCase = new();
     public List<GameObject> delivered = new();
+    public Image orderBg;
     private GameObject toAdd;
+
     void Start()
     {
         base.Start();

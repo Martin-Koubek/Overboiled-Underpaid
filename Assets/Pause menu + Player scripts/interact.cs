@@ -122,6 +122,7 @@ public class interact : MonoBehaviour
                                 if (cust.Order[i].GetComponent<ingred>().Name != dish.PlacedIngredience[i].GetComponent<ingred>().Name)
                                 {
                                     Debug.Log("Wrong Order");
+                                    cust.orderBg.color = Color.red;
                                     return;
                                 }
                             }
@@ -129,10 +130,13 @@ public class interact : MonoBehaviour
                             Destroy(cust);
                             holding=false;
                             Debug.Log("Good");
+                            cust.orderBg.color = Color.green;
+
                         }
                         else
                         {
                             Debug.Log("Wrong length");
+                            cust.orderBg.color = Color.red;
                         }
                     }
                     else if (hit.collider.TryGetComponent<trash>(out trash Trash))
