@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class interact : MonoBehaviour
@@ -6,6 +7,7 @@ public class interact : MonoBehaviour
     public GameObject heldItem;
     public Transform RayCastPoint;
     public GameObject holdSpot;
+    public TextMeshProUGUI txt;
     [SerializeField]
     private GameObject OManager;
 
@@ -16,6 +18,7 @@ public class interact : MonoBehaviour
     public float HitRange = 5f;
     //drží hráè nìco ?
     public bool holding;
+    public bool maHasicak;
     //raycast info
     public RaycastHit hit;
 
@@ -70,9 +73,28 @@ public class interact : MonoBehaviour
                     }
                     else return;
                 }
+                else if(hit.collider.gameObject.TryGetComponent<fire>(out fire f))
+                {
+                    heldItem = f.hasicak;
+                    holding = true;
+                    maHasicak = true;
+                }
             }
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
             {
+                if (maHasicak && hit.collider.gameObject.GetComponent<fire>())
+                {
+                    Destroy(heldItem);
+                    holding = false;
+                    maHasicak = false;
+                }
+                else if (maHasicak && hit.collider.gameObject.TryGetComponent<cuttingBoard>(out cuttingBoard c))
+                {
+                    if (c.isOnFire)
+                    {
+
+                    }
+                }
 
                 if (hit.collider.gameObject.TryGetComponent<Table>(out Table table))
                 {
@@ -126,10 +148,13 @@ public class interact : MonoBehaviour
                                     return;
                                 }
                             }
+                            int score = 0;
                             Destroy(heldItem);
                             Destroy(cust);
                             holding=false;
                             Debug.Log("Good");
+                            score++;
+                            txt.text = score.ToString();
                             cust.orderBg.color = Color.green;
 
                         }
