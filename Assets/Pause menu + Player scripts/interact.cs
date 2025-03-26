@@ -75,9 +75,12 @@ public class interact : MonoBehaviour
                 }
                 else if(hit.collider.gameObject.TryGetComponent<fire>(out fire f))
                 {
-                    heldItem = f.hasicak;
-                    holding = true;
-                    maHasicak = true;
+                    if (!maHasicak)
+                    {
+                        heldItem = Instantiate(f.hasicak); ;
+                        take();
+                        maHasicak = true;
+                    }
                 }
             }
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
@@ -92,7 +95,7 @@ public class interact : MonoBehaviour
                 {
                     if (c.isOnFire)
                     {
-
+                        c.isOnFire = false;
                     }
                 }
 
@@ -120,9 +123,17 @@ public class interact : MonoBehaviour
                 {
                     if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c) && !c.isPlaced && (c.isStove && ing.isCookable || ing.isBurnable || (c.isCuttingBoard && ing.isCuttable)))
                     {
+                        int s = Random.Range(0, 10);
+                        if (s <= 5)
+                        {
                         c.PlacedIngredienceA = heldItem;
                         c.isPlaced = true;
                         Place(c.PSpot);
+                        }
+                        else
+                        {
+                            c.isOnFire = true;
+                        }
                     }
 
                     else if (hit.collider.TryGetComponent<trash>(out trash Trash))

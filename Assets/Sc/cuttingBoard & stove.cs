@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class cuttingBoard : MonoBehaviour
     public GameObject PlacedIngredienceB;
     private GameObject ItemToDestroy;
     public Transform PSpot;
+    public ParticleSystem fireEfect;
 
     private float firstTime;
 
@@ -25,12 +27,14 @@ public class cuttingBoard : MonoBehaviour
     public bool isPlaced;
     public bool isStove;
     public bool isCuttingBoard;
+    public bool isOnFire;
 
     [SerializeField] private GameObject playerCamera;
 
     
     public void Start()
     {
+        fireEfect.gameObject.SetActive(false);
         if (isCuttingBoard)
         {
             isPlaced = false;
@@ -89,24 +93,33 @@ public class cuttingBoard : MonoBehaviour
 
             else if (isStove)
             {
-                if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable || Ingredience.isBurnable)
+                if (isOnFire)
                 {
-                    progress.gameObject.SetActive(true);
-                    cookingTime += Time.deltaTime;
-                    cook(Ingredience);
-                    if (cookingTime <= Ingredience.prepTime && Ingredience.isCookable)
-                    {
-                        firstTime = Ingredience.prepTime;
-                        Image.fillAmount += Time.deltaTime / Ingredience.prepTime;
-                    }
-                    else if (cookingTime < Ingredience.prepTime && Ingredience.isBurnable)
-                    {
-                        burnImage.fillAmount += Time.deltaTime / (Ingredience.prepTime/2);
-                    }
+                    fireEfect.gameObject.SetActive(true);
+                    Destroy(PlacedIngredienceA);
                 }
-                else if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred ingredience) && !Ingredience.isCookable || !Ingredience.isBurnable)
+                else
                 {
-                    progress.gameObject.SetActive(false);
+                    fireEfect.gameObject.SetActive(false);
+                    if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred Ingredience) && Ingredience.isCookable || Ingredience.isBurnable)
+                    {
+                        progress.gameObject.SetActive(true);
+                        cookingTime += Time.deltaTime;
+                        cook(Ingredience);
+                        if (cookingTime <= Ingredience.prepTime && Ingredience.isCookable)
+                        {
+                            firstTime = Ingredience.prepTime;
+                            Image.fillAmount += Time.deltaTime / Ingredience.prepTime;
+                        }
+                        else if (cookingTime < Ingredience.prepTime && Ingredience.isBurnable)
+                        {
+                            burnImage.fillAmount += Time.deltaTime / (Ingredience.prepTime / 2);
+                        }
+                    }
+                    else if (PlacedIngredienceA.TryGetComponent<ingred>(out ingred ingredience) && !Ingredience.isCookable || !Ingredience.isBurnable)
+                    {
+                        progress.gameObject.SetActive(false);
+                    }
                 }
             }
         }
