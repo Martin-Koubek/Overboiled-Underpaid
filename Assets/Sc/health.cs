@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class health : MonoBehaviour
@@ -10,18 +11,14 @@ public class health : MonoBehaviour
     [SerializeField]
     private Light light3;
 
-    public GameObject failScreen;
-
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
         light1.intensity = 1;
         light1.intensity = 1;
         light1.intensity = 1;
-        failScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,6 +41,8 @@ public class health : MonoBehaviour
             light1.intensity = 0;
             light2.intensity = 0;
             light3.intensity = 0;
+            //TryGetComponent<GameMenu>(out GameMenu g);
+            //g.Fail = true;
         }
     }
 }

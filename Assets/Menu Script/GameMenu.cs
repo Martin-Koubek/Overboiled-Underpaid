@@ -5,8 +5,11 @@ public class GameMenu : MonoBehaviour
 {
     public GameObject PMenu;
     public GameObject options;
+    public GameObject fail;
+    public GameObject HM;
     public bool isOptionOpen;
     public bool isPaused;
+    public bool Fail;
 
     void Start()
     {
@@ -15,6 +18,7 @@ public class GameMenu : MonoBehaviour
     }
     void Update()
     {
+        HM.TryGetComponent<health>(out health h);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused == false)
@@ -34,7 +38,13 @@ public class GameMenu : MonoBehaviour
                 resume();
             }
         }
-
+        else if (h.healthLevel == 0)
+        {
+            Time.timeScale = 0;
+            fail.gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
     }
 

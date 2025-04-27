@@ -10805,8 +10805,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PMenu: {fileID: 296763743}
   options: {fileID: 1211203162}
+  fail: {fileID: 1616597796}
+  HM: {fileID: 1355665440}
   isOptionOpen: 0
   isPaused: 0
+  Fail: 0
 --- !u!4 &572957578
 Transform:
   m_ObjectHideFlags: 0
@@ -24677,7 +24680,6 @@ MonoBehaviour:
   light1: {fileID: 1457960568}
   light2: {fileID: 26214144}
   light3: {fileID: 968497434}
-  failScreen: {fileID: 1616597796}
 --- !u!1001 &1357112213
 PrefabInstance:
   m_ObjectHideFlags: 0

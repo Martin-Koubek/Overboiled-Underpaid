@@ -1,5 +1,6 @@
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -233,12 +234,6 @@ public class interact : MonoBehaviour
                     maHasicak = false;
                 }
             }
-        }
-        if (h.healthLevel == 0)
-        {
-            Time.timeScale = 0;
-            h.failScreen.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
         }
 
         
