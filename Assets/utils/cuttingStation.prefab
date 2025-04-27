@@ -253,6 +253,135 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8090406633274121893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909236457029791534}
+  - component: {fileID: 4735054829720421474}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &909236457029791534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8090406633274121893}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.03222649, y: 1.1633788, z: 1.7249646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7252048718382260549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4735054829720421474
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8090406633274121893}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8544fefbeea9eaa4c993d0a66fa5c769, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8544fefbeea9eaa4c993d0a66fa5c769, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2809028681160094488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,6 +476,7 @@ MonoBehaviour:
   PlacedIngredienceA: {fileID: 0}
   PlacedIngredienceB: {fileID: 0}
   PSpot: {fileID: 7588268852327192667}
+  fireEfect: {fileID: 0}
   progress: {fileID: 0}
   Image: {fileID: 0}
   burnImage: {fileID: 0}
@@ -354,7 +484,8 @@ MonoBehaviour:
   isPlaced: 0
   isStove: 0
   isCuttingBoard: 1
-  playerCamera: {fileID: 0}
+  isOnFire: 0
+  player: {fileID: 0}
 --- !u!4 &4173769834039531387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2240427835707925603, guid: 6eae4890bdfeea94e9671a5665317399, type: 3}
@@ -430,13 +561,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f053fce24597274f914bf41e523f8b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8376977625050142543}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f053fce24597274f914bf41e523f8b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 909236457029791534}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1f053fce24597274f914bf41e523f8b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1478185614947733064}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1f053fce24597274f914bf41e523f8b3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3633800237711616073}
+      addedObject: {fileID: 1823919499283625021}
   m_SourcePrefab: {fileID: 100100000, guid: 1f053fce24597274f914bf41e523f8b3, type: 3}
 --- !u!4 &7252048718382260549 stripped
 Transform:
@@ -469,7 +603,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1.1509612, z: 2}
   m_Center: {x: 0, y: 0.5754808, z: 6.6206636e-17}
---- !u!114 &3633800237711616073
+--- !u!114 &1823919499283625021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -478,7 +612,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8065845014987553791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 125e28a9147f61345a5acc72291ef581, type: 3}
+  m_Script: {fileID: 11500000, guid: 844327e02c2c71a48abddae260562cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cuttingTime: 0
@@ -486,14 +620,12 @@ MonoBehaviour:
   PlacedIngredienceA: {fileID: 0}
   PlacedIngredienceB: {fileID: 0}
   PSpot: {fileID: 7588268852327192667}
+  sound: {fileID: 4735054829720421474}
   progress: {fileID: 4409521310962924388}
   Image: {fileID: 8117022703979333431}
-  burnImage: {fileID: 0}
   worldCanvas: {fileID: 5454917141403169383}
-  isPlaced: 0
-  isStove: 0
-  isCuttingBoard: 1
   playerCamera: {fileID: 0}
+  isPlaced: 0
 --- !u!1001 &8431063650973173696
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class cuttingBoard : MonoBehaviour
     public bool isCuttingBoard;
     public bool isOnFire;
 
-    [SerializeField] private GameObject playerCamera;
+    public GameObject player;
 
     
     public void Start()
@@ -54,7 +54,7 @@ public class cuttingBoard : MonoBehaviour
     }
     private void Update()
     {
-        worldCanvas.transform.rotation = Quaternion.LookRotation(worldCanvas.transform.position - playerCamera.transform.position);
+        worldCanvas.transform.rotation = Quaternion.LookRotation(worldCanvas.transform.position - player.transform.position);
         if (!isPlaced)
         {
             if (isCuttingBoard)

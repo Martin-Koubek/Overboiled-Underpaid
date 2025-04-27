@@ -111,13 +111,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CuttVersion: {fileID: 0}
   CookingVersion: {fileID: 8869257484498435908, guid: 1a11b330cf3bf514499c2a00db3d5315, type: 3}
-  BurdenVersion: {fileID: 0}
+  BurdenVersion: {fileID: 3553630617449119936, guid: fe6ca787e5a183c43abcd0dfbcc56bc2, type: 3}
   isCuttable: 0
   isBurnable: 0
   prepTime: 4
-  burnTime: 8
+  burnTime: 0
   Name: rawBurger
-  finalCount: 0
   isCookable: 1
   isBun: 0
 --- !u!54 &7403040573446349426

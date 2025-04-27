@@ -11,7 +11,6 @@ public class ingred : MonoBehaviour
     public float prepTime;
     public float burnTime;
     public string Name;
-    public int finalCount;
     public bool isCookable;
     public bool isBun;
 

@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class interact : MonoBehaviour
 {
@@ -8,8 +10,6 @@ public class interact : MonoBehaviour
     public Transform RayCastPoint;
     public GameObject holdSpot;
     public TextMeshProUGUI txt;
-    [SerializeField]
-    private GameObject OManager;
 
     public LayerMask PickUpMask;
     public LayerMask InteractMask;
@@ -22,11 +22,18 @@ public class interact : MonoBehaviour
     //raycast info
     public RaycastHit hit;
 
-    public float tillFreez = 2f;
+    public GameObject healtM;
+
+    int score = 0;
+
+    public void Start()
+    {
+        
+    }
 
     void Update()
     {
-        tillFreez -= Time.deltaTime;
+        healtM.TryGetComponent<health>(out health h);
         if (Input.GetKeyDown(KeyCode.E))
         {
             Ray ray = new Ray(RayCastPoint.position, RayCastPoint.forward);
@@ -53,7 +60,7 @@ public class interact : MonoBehaviour
                     table.isPlaced = false;
                 }
 
-                else if (hit.collider.gameObject.TryGetComponent<cuttingBoard>(out cuttingBoard c))
+                else if (hit.collider.gameObject.TryGetComponent<cuttingboard>(out cuttingboard c))
                 {
                     if (c.PlacedIngredienceB == null && c.PlacedIngredienceA != null)
                     {
@@ -63,6 +70,7 @@ public class interact : MonoBehaviour
                         take();
                     }
 
+
                     else if (c.PlacedIngredienceB != null && c.PlacedIngredienceA != null)
                     {
                         heldItem = c.PlacedIngredienceA;
@@ -71,9 +79,18 @@ public class interact : MonoBehaviour
                         c.PlacedIngredienceB = null;
 
                     }
+
                     else return;
                 }
-                else if(hit.collider.gameObject.TryGetComponent<fire>(out fire f))
+                else if (hit.collider.gameObject.TryGetComponent<stove>(out stove st))
+                {
+                    heldItem = st.PlacedIngredienceA;
+                    st.PlacedIngredienceA = null;
+                    st.isPlaced = false;
+                    take();
+                    st.sound.Stop();
+                }
+                else if (hit.collider.gameObject.TryGetComponent<fire>(out fire f))
                 {
                     if (!maHasicak)
                     {
@@ -85,56 +102,57 @@ public class interact : MonoBehaviour
             }
             else if (holding && Physics.Raycast(ray, out hit, HitRange, InteractMask))
             {
-                if (maHasicak && hit.collider.gameObject.GetComponent<fire>())
-                {
-                    Destroy(heldItem);
-                    holding = false;
-                    maHasicak = false;
-                }
-                else if (maHasicak && hit.collider.gameObject.TryGetComponent<cuttingBoard>(out cuttingBoard c))
-                {
-                    if (c.isOnFire)
-                    {
-                        c.isOnFire = false;
-                    }
-                }
-
-                if (hit.collider.gameObject.TryGetComponent<Table>(out Table table))
-                {
-                    if (!table.isPlaced)
-                    {
-                        table.placedItem = heldItem;
-                        table.isPlaced = true;
-                        Place(table.placeSpot);
-                    }
-
-                    else if (table.placedItem.TryGetComponent<dish>(out dish Dish))
-                    {
-                        Dish.PlacedIngredience.Add(heldItem);
-                        Place(Dish.dropSpot);
-                        heldItem.transform.localPosition = Vector3.zero;
-                        heldItem.TryGetComponent<Rigidbody>(out Rigidbody R);
-                        R.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
-                    }
-
-                }
-
                 if (heldItem.TryGetComponent<ingred>(out ingred ing))
                 {
-                    if (hit.collider.TryGetComponent<cuttingBoard>(out cuttingBoard c) && !c.isPlaced && (c.isStove && ing.isCookable || ing.isBurnable || (c.isCuttingBoard && ing.isCuttable)))
+                    if (ing.isCookable)
                     {
-                        int s = Random.Range(0, 10);
-                        if (s <= 5)
+                        if (hit.collider.TryGetComponent<stove>(out stove s))
                         {
-                        c.PlacedIngredienceA = heldItem;
-                        c.isPlaced = true;
-                        Place(c.PSpot);
-                        }
-                        else
-                        {
-                            c.isOnFire = true;
+                            int a = Random.Range(0, 10);
+                            if (a <= 6)
+                            {
+                                s.PlacedIngredienceA = heldItem;
+                                s.isPlaced = true;
+                                Place(s.PSpot);
+                                s.sound.Play();
+                            }
+                            else
+                            {
+                                s.isOnFire = true;
+                            }
                         }
                     }
+                    else if (ing.isCuttable)
+                    {
+                        if (hit.collider.TryGetComponent<cuttingboard>(out cuttingboard c))
+                        {
+                            c.PlacedIngredienceA = heldItem;
+                            c.isPlaced = true;
+                            Place(c.PSpot);
+                            c.sound.Play();
+                        }
+                    }
+
+                    if (hit.collider.gameObject.TryGetComponent<Table>(out Table table))
+                    {
+                        if (!table.isPlaced)
+                        {
+                            table.placedItem = heldItem;
+                            table.isPlaced = true;
+                            Place(table.placeSpot);
+                        }
+
+                        else if (table.placedItem.TryGetComponent<dish>(out dish Dish))
+                        {
+                            Dish.PlacedIngredience.Add(heldItem);
+                            Place(Dish.dropSpot);
+                            heldItem.transform.localPosition = Vector3.zero;
+                            heldItem.TryGetComponent<Rigidbody>(out Rigidbody R);
+                            R.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                        }
+
+                    }
+
 
                     else if (hit.collider.TryGetComponent<trash>(out trash Trash))
                     {
@@ -142,63 +160,89 @@ public class interact : MonoBehaviour
                         holding = false;
                     }
                 }
+               
 
                 else if (heldItem.TryGetComponent<dish>(out dish dish))
                 {
+                    if (hit.collider.TryGetComponent<Table>(out Table table))
+                    {
+                        if (!table.isPlaced)
+                        {
+                            table.placedItem = heldItem;
+                            table.isPlaced = true;
+                            Place(table.placeSpot);
+                        }
+                    }
                     if (hit.collider.TryGetComponent<customer>(out customer cust))
                     {
-                        //OManager.TryGetComponent<recepty>(out recepty r);
+                        cust.zvonek.Play();
                         if (cust.Order.Count == dish.PlacedIngredience.Count)
                         {
+                            
                             for (int i = 0; i < cust.Order.Count - 1; i++)
                             {
                                 if (cust.Order[i].GetComponent<ingred>().Name != dish.PlacedIngredience[i].GetComponent<ingred>().Name)
                                 {
                                     Debug.Log("Wrong Order");
                                     cust.orderBg.color = Color.red;
+                                    h.healthLevel --;
                                     return;
                                 }
                             }
-                            int score = 0;
+                           
                             Destroy(heldItem);
-                            Destroy(cust);
-                            holding=false;
+                            holding = false;
                             Debug.Log("Good");
                             score++;
                             txt.text = score.ToString();
                             cust.orderBg.color = Color.green;
+                            //cust.newOrd();
 
                         }
                         else
                         {
+
                             Debug.Log("Wrong length");
                             cust.orderBg.color = Color.red;
+                            h.healthLevel--;
                         }
                     }
                     else if (hit.collider.TryGetComponent<trash>(out trash Trash))
                     {
-                        foreach(GameObject placed in dish.PlacedIngredience)
+                        foreach (GameObject placed in dish.PlacedIngredience)
                         {
                             Destroy(placed);
-                        }   
+                        }
                         dish.PlacedIngredience.Clear();
                     }
+
+                   
                 }
 
+                if (hit.collider.gameObject.TryGetComponent<stove>(out stove st) && maHasicak && st.isOnFire)
+                {
+                    st.isOnFire = false;
+                    st.fireEfect.gameObject.SetActive(false);
+                    st.fireS.Stop();
+                }
+
+                if (maHasicak && hit.collider.gameObject.GetComponent<fire>())
+                {
+                    Destroy(heldItem);
+                    holding = false;
+                    maHasicak = false;
+                }
             }
         }
-        //else if (holding && Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    drop();
-        //}
-    }
+        if (h.healthLevel == 0)
+        {
+            Time.timeScale = 0;
+            h.failScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+        }
 
-    //public void drop()
-    //{
-    //    heldItem.transform.SetParent(null);
-    //    holding = false;
-    //    heldItem.GetComponent<Rigidbody>().isKinematic = false;
-    //}
+        
+    }
     public void take()
     {
         holding = true;
@@ -212,12 +256,9 @@ public class interact : MonoBehaviour
         heldItem.transform.SetParent(transform, true);
         heldItem.transform.localPosition = Vector3.zero;
         heldItem.GetComponent<Rigidbody>().isKinematic = false;
+        heldItem = null;
         holding = false;
     }
-    //public void placeOnPlate()
-    //{
-
-    //}
 }
 
 

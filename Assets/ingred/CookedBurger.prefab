@@ -110,14 +110,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CuttVersion: {fileID: 0}
-  CookingVersion: {fileID: 0}
+  CookingVersion: {fileID: 3553630617449119936, guid: fe6ca787e5a183c43abcd0dfbcc56bc2, type: 3}
   BurdenVersion: {fileID: 3553630617449119936, guid: fe6ca787e5a183c43abcd0dfbcc56bc2, type: 3}
   isCuttable: 0
   isBurnable: 1
   prepTime: 8
   burnTime: 8
   Name: cookedBurger
-  finalCount: 0
   isCookable: 0
   isBun: 0
 --- !u!54 &1719098261391808025
@@ -128,7 +127,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8869257484498435908}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
