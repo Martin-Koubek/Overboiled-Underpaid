@@ -9,8 +9,8 @@ public class customer : recepty
     [SerializeField]
     private List<GameObject> showCase = new();
     public List<GameObject> delivered = new();
+    public List<GameObject> shown = new();
     public Image orderBg;
-    private GameObject toAdd;
     public AudioSource zvonek;
 
     void Start()
@@ -26,13 +26,21 @@ public class customer : recepty
         {
             Debug.Log(Order[o].name);
             Debug.Log(Order[o].name);
-            Instantiate(showCase.Find(a => a.name == Order[o].name), showSpot[o].transform);
+            shown.Add(Instantiate(showCase.Find(a => a.name == Order[o].name), showSpot[o].transform));
         }
     }
     public void newOrd()
     {
         base.Start();
         showOrder();
+    }
+    public void removeViz()
+    {
+        foreach (GameObject s in shown)
+        {
+            Destroy(s);
+        }
+        Order.Clear();
     }
 }
 
