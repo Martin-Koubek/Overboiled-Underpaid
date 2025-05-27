@@ -197,7 +197,8 @@ public class interact : MonoBehaviour
                             score++;
                             txt.text = score.ToString();
                             cust.orderBg.color = Color.green;
-                            //cust.newOrd();
+                            cust.removeViz();
+                            cust.newOrd();
 
                         }
                         else
