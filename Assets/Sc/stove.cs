@@ -31,12 +31,14 @@ public class stove : MonoBehaviour
     public bool isPlaced;
     public bool isOnFire;
 
+
     private void Start()
     {
         cookingTime = 0;
         Image.fillAmount = 0;
         burnImage.fillAmount = 0;
         progress.gameObject.SetActive(false);
+        fireEfect.Stop();
     }
 
     private void Update()
@@ -54,7 +56,7 @@ public class stove : MonoBehaviour
         {
             if (isOnFire && PlacedIngredienceA.TryGetComponent<ingred>(out ingred i))
             {
-                fireEfect.gameObject.SetActive(true);
+                fireEfect.Stop();
                 burn(i);
                 sound.Stop();
                 fireS.Play();
