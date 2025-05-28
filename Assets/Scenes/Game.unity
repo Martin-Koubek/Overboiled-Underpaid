@@ -3251,9 +3251,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2118192418146709255, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: m_Name
       value: stove_single (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452049491232846509, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4891276882202651944, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: player
@@ -14623,9 +14643,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2118192418146709255, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: m_Name
       value: stove_single (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452049491232846509, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4891276882202651944, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: player
@@ -21917,9 +21957,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2118192418146709255, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: m_Name
       value: stove_single (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452049491232846509, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4891276882202651944, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: player
@@ -38674,12 +38734,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: moveWithTransform
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 1000
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -38687,16 +38759,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043091231361389742, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7667935
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043091231361389742, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043091231361389742, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_Center.y
+      value: 0.88339674
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043091231361389742, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2118192418146709255, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: m_Name
       value: stove_single (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4452049491232846509, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4891276882202651944, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1403188303}
+    - target: {fileID: 7303706949100625186, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303706949100625186, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

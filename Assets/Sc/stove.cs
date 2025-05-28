@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +16,7 @@ public class stove : MonoBehaviour
     private float firstTime;
 
     public AudioSource sound;
-    public AudioSource fireS;
+    //public AudioSource fireS;
 
     [SerializeField]
     private Image progress;
@@ -56,10 +57,11 @@ public class stove : MonoBehaviour
         {
             if (isOnFire && PlacedIngredienceA.TryGetComponent<ingred>(out ingred i))
             {
-                fireEfect.Play();
                 burn(i);
-                sound.Stop();
-                fireS.Play();
+                sound.Play();
+                //isOnFire = true;
+                //fireEfect.Play();
+                //fireS.Play();
             }
             else
             {
@@ -88,7 +90,11 @@ public class stove : MonoBehaviour
         
     }
 
-
+    public void setFire()
+    {
+        isOnFire = true;
+        fireEfect.Play();
+    }
     private void cook(ingred I)
     {
 
@@ -116,6 +122,6 @@ public class stove : MonoBehaviour
         ItemToDestroy = PlacedIngredienceA;
         PlacedIngredienceA = Instantiate(i.BurdenVersion, PSpot);
         Destroy(ItemToDestroy);
-        PlacedIngredienceA.transform.localPosition = Vector3.zero;
+        PlacedIngredienceA.transform.position = PSpot.transform.position;
     }
 }

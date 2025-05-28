@@ -119,7 +119,10 @@ public class interact : MonoBehaviour
                             }
                             else
                             {
-                                s.isOnFire = true;
+                                s.PlacedIngredienceA = heldItem;
+                                s.isPlaced = true;
+                                s.setFire();
+                                holding = false;
                             }
                         }
                     }
@@ -180,14 +183,14 @@ public class interact : MonoBehaviour
                         if (cust.Order.Count == dish.PlacedIngredience.Count)
                         {
                             
-                            for (int i = 0; i < cust.Order.Count - 1; i++)
+                            for (int i = 0; i < cust.Order.Count; i++)
                             {
                                 if (cust.Order[i].GetComponent<ingred>().Name != dish.PlacedIngredience[i].GetComponent<ingred>().Name)
                                 {
                                     Debug.Log("Wrong Order");
                                     cust.orderBg.color = Color.red;
                                     h.healthLevel --;
-                                    return;
+                                    break;
                                 }
                             }
                            
@@ -224,8 +227,7 @@ public class interact : MonoBehaviour
                 if (hit.collider.gameObject.TryGetComponent<stove>(out stove st) && maHasicak && st.isOnFire)
                 {
                     st.isOnFire = false;
-                    st.fireEfect.gameObject.SetActive(false);
-                    st.fireS.Stop();
+                    st.fireEfect.Stop();
                 }
 
                 if (maHasicak && hit.collider.gameObject.GetComponent<fire>())
