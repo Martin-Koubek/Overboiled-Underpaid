@@ -56,7 +56,7 @@ public class stove : MonoBehaviour
         {
             if (isOnFire && PlacedIngredienceA.TryGetComponent<ingred>(out ingred i))
             {
-                fireEfect.Stop();
+                fireEfect.Play();
                 burn(i);
                 sound.Stop();
                 fireS.Play();
