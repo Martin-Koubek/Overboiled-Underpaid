@@ -25,11 +25,11 @@ public class interact : MonoBehaviour
 
     public GameObject healtM;
 
-    int score = 0;
+    public int Score;
 
     public void Start()
     {
-        
+        txt.text = Score.ToString();
     }
 
     void Update()
@@ -197,8 +197,8 @@ public class interact : MonoBehaviour
                             Destroy(heldItem);
                             holding = false;
                             Debug.Log("Good");
-                            score++;
-                            txt.text = score.ToString();
+                            Score++;
+                            txt.text = Score.ToString();
                             cust.orderBg.color = Color.green;
                             cust.removeViz();
                             cust.newOrd();

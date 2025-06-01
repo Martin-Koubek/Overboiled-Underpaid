@@ -4666,7 +4666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &296763744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8257,6 +8257,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 572957580}
+        m_TargetAssemblyTypeName: SaveSc, Assembly-CSharp
+        m_MethodName: SaveData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &457266932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10808,6 +10820,7 @@ GameObject:
   - component: {fileID: 572957578}
   - component: {fileID: 572957577}
   - component: {fileID: 572957579}
+  - component: {fileID: 572957580}
   m_Layer: 0
   m_Name: MenuControler
   m_TagString: Untagged
@@ -10867,6 +10880,20 @@ MonoBehaviour:
   setQualit: 0
   setResH: 0
   setResV: 0
+--- !u!114 &572957580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572957576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cc95f1e9c66e049a0b1839094e1a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 0}
+  health: {fileID: 1355665442}
 --- !u!1 &579095833
 GameObject:
   m_ObjectHideFlags: 0
@@ -25764,6 +25791,7 @@ MonoBehaviour:
   holding: 0
   maHasicak: 0
   healtM: {fileID: 1355665440}
+  Score: 0
 --- !u!1 &1409473753
 GameObject:
   m_ObjectHideFlags: 0
@@ -27101,7 +27129,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return to menu
+  m_text: 'Save and Quit
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

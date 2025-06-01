@@ -13,8 +13,10 @@ public class customer : recepty
     public Image orderBg;
     public AudioSource zvonek;
 
+
     void Start()
     {
+
         base.Start();
         showOrder();
     }
@@ -33,6 +35,7 @@ public class customer : recepty
     {
         base.Start();
         showOrder();
+        orderBg.color = Color.white;
     }
     public void removeViz()
     {
