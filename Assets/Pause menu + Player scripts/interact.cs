@@ -34,6 +34,7 @@ public class interact : MonoBehaviour
 
     void Update()
     {
+        txt.text = Score.ToString();
         healtM.TryGetComponent<health>(out health h);
         if (Input.GetKeyDown(KeyCode.E))
         {
