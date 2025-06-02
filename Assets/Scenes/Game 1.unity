@@ -10894,7 +10894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 1403188308}
   health: {fileID: 1355665442}
-  load: 0
+  load: 1
 --- !u!1 &579095833
 GameObject:
   m_ObjectHideFlags: 0

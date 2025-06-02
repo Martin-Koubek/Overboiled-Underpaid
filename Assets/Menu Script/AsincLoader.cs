@@ -18,7 +18,6 @@ public class AsincLoader : MonoBehaviour
     {
         mainMenu.SetActive(false);
         loadScene.SetActive(true);
-
         StartCoroutine(LoadLevelAsync(levelToLoad));
     }
 
