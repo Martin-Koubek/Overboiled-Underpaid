@@ -12,6 +12,9 @@ public class customer : recepty
     public List<GameObject> shown = new();
     public Image orderBg;
     public AudioSource zvonek;
+    public List<Material> mat = new List<Material>();
+    int m;
+    public GameObject CustLook;
 
 
     void Start()
@@ -33,6 +36,7 @@ public class customer : recepty
     }
     public void newOrd()
     {
+        m = Random.Range(0,mat.Count);
         base.Start();
         showOrder();
         orderBg.color = Color.white;
