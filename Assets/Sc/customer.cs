@@ -13,16 +13,40 @@ public class customer : recepty
     public Image orderBg;
     public AudioSource zvonek;
     public List<Material> mat = new List<Material>();
-    int m;
+    public Material gone;
+    float w;
     public GameObject CustLook;
+    public bool waitOrder;
 
 
     void Start()
     {
-
+        waitOrder = false;
+        CustLook.GetComponent<Renderer>().material = mat[Random.Range(0, mat.Count)];
+        //w = Random.Range(10, 25) * Time.deltaTime;
         base.Start();
         showOrder();
     }
+    private void Update()
+    {
+        if (waitOrder)
+        {
+            CustLook.GetComponent<Renderer>().material = gone;
+            orderBg.gameObject.SetActive(false);
+
+            if (w <= 0)
+            {
+                orderBg.gameObject.SetActive(true);
+                CustLook.GetComponent<Renderer>().material = mat[Random.Range(0, mat.Count)];
+                base.Start();
+                showOrder();
+                orderBg.color = Color.white;
+                waitOrder = false;
+            }
+            else { w -= Time.deltaTime; }
+        }
+    }
+
     private void showOrder()
     {
         Debug.Log(Order.Count);
@@ -36,10 +60,8 @@ public class customer : recepty
     }
     public void newOrd()
     {
-        m = Random.Range(0,mat.Count);
-        base.Start();
-        showOrder();
-        orderBg.color = Color.white;
+        w = Random.Range(240, 480) * Time.deltaTime;
+        waitOrder = true;
     }
     public void removeViz()
     {

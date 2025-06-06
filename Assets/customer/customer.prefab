@@ -444,8 +444,18 @@ MonoBehaviour:
   - {fileID: 8268328310003738908}
   showCase: []
   delivered: []
+  shown: []
   orderBg: {fileID: 7725106658583239172}
   zvonek: {fileID: 2845521462025613052}
+  mat:
+  - {fileID: 2100000, guid: 00c7116a355c5224f89ef42bcf8ba822, type: 2}
+  - {fileID: 2100000, guid: 564fb49fa36234d42bafd52928f10932, type: 2}
+  - {fileID: 2100000, guid: 72eba49ec27112843b2ff9b5c53f7403, type: 2}
+  - {fileID: 2100000, guid: 1f8f29be44dd2f041ad967d3b29602e8, type: 2}
+  - {fileID: 2100000, guid: 7104a782891d6314abeb5da965d9acc7, type: 2}
+  gone: {fileID: 2100000, guid: dbb9a18a87af12648bc16e72ded806eb, type: 2}
+  CustLook: {fileID: 0}
+  waitOrder: 0
 --- !u!1 &6184555051122646246
 GameObject:
   m_ObjectHideFlags: 0
