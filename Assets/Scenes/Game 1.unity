@@ -3265,11 +3265,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 6
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043091231361389742, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2118192418146709255, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: m_Name
@@ -3283,6 +3287,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1403188303}
+    - target: {fileID: 7303706949100625186, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14690,11 +14698,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 6
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043091231361389742, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2118192418146709255, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: m_Name
@@ -14708,6 +14720,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1403188303}
+    - target: {fileID: 7303706949100625186, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303706949100625186, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22009,11 +22029,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 6
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043091231361389742, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2118192418146709255, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: m_Name
@@ -22027,6 +22051,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1403188303}
+    - target: {fileID: 7303706949100625186, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303706949100625186, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38840,7 +38872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1659345250062479424, guid: d150c1c37cbff6b45807ebcb961f1721, type: 3}
       propertyPath: InitialModule.startSize.scalar

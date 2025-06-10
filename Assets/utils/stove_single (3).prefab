@@ -685,7 +685,6 @@ MonoBehaviour:
   PSpot: {fileID: 6497223227591889849}
   fireEfect: {fileID: 1659345250062479424}
   sound: {fileID: 6323053274135875535}
-  fireS: {fileID: 0}
   progress: {fileID: 709362843783239861}
   Image: {fileID: 7338846756251188474}
   burnImage: {fileID: 4740981775090443739}
@@ -779,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7839495814768072183, guid: c24228de0efaffc4fb4925fb2179e2e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.615
       objectReference: {fileID: 0}
     - target: {fileID: 7839495814768072183, guid: c24228de0efaffc4fb4925fb2179e2e3, type: 3}
       propertyPath: m_LocalPosition.z

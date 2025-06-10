@@ -13,8 +13,6 @@ public class stove : MonoBehaviour
     public Transform PSpot;
     public ParticleSystem fireEfect;
 
-    private float firstTime;
-
     public AudioSource sound;
     //public AudioSource fireS;
 
@@ -59,9 +57,6 @@ public class stove : MonoBehaviour
             {
                 burn(i);
                 sound.Play();
-                //isOnFire = true;
-                //fireEfect.Play();
-                //fireS.Play();
             }
             else
             {
@@ -72,7 +67,6 @@ public class stove : MonoBehaviour
                     cook(Ingredience);
                     if (cookingTime <= Ingredience.prepTime && Ingredience.isCookable)
                     {
-                        firstTime = Ingredience.prepTime;
                         Image.fillAmount += Time.deltaTime / Ingredience.prepTime;
                     }
                     else if (cookingTime < Ingredience.burnTime && Ingredience.isBurnable)
